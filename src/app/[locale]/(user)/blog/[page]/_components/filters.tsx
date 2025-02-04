@@ -10,9 +10,9 @@ import { SectionWrapper, SectionTitle } from '@/components/shared/section';
 import { Input } from '@/components/ui/input';
 import { Category } from '@/components/shared/category';
 import { Search } from '@/icons';
-import { axios } from '@/lib/axios';
 import { cn, handleError } from '@/lib/utils';
 import { Categories } from '@/types/api';
+import axios from '@/lib/axios';
 
 export function BlogFilters() {
   const t = useTranslations();

@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useTranslations } from 'next-intl';
 import useSWR from 'swr';
 import { Button } from '@/components/ui/button';
-import { axios } from '@/lib/axios';
+import axios from '@/lib/axios';
 import { Blog } from '@/types/api';
 import { MountainsShape } from '@/shapes';
 import { BlogCard } from '@/components/shared/blog-card';

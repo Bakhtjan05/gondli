@@ -3,7 +3,7 @@
 import { useMediaQuery } from 'react-responsive';
 import { useParams, useSearchParams } from 'next/navigation';
 import useSWR from 'swr';
-import { axios } from '@/lib/axios';
+import axios from '@/lib/axios';
 import { Blog } from '@/types/api';
 import { BlogCard } from '@/components/shared/blog-card';
 import { Pagination } from '@/components/shared/pagination';
