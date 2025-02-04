@@ -8,9 +8,11 @@ interface PageProps {
 }
 
 const CharityEvent: NextPage<PageProps> = ({ params }) => {
+    const { id } = params;
+
   return (
     <main>
-      <CenterDetails serviceId={params.id} />
+      <CenterDetails serviceId={id} />
     </main>
   );
 };
