@@ -1,17 +1,18 @@
+import { NextPage } from "next";
 import CenterDetails from "../_components/CenterDetails/CenterDetails";
 
-interface Params {
+interface PageProps {
   params: {
     id: string;
   };
 }
 
-export default function CharityEvent({ params }: Params) {
-  const { id } = params;
-
+const CharityEvent: NextPage<PageProps> = ({ params }) => {
   return (
     <main>
-      <CenterDetails serviceId={id} /> {/* Передаем ID в CenterDetails */}
+      <CenterDetails serviceId={params.id} />
     </main>
   );
-}
+};
+
+export default CharityEvent;
