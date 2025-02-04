@@ -4,11 +4,13 @@ import React, { useEffect, useState } from "react";
 import "./ProfileSecurity.scss";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import { useAuth } from "@/types/auth";
 import axios from "@/lib/axios";
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, setUserName, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 export default function ProfileSecurity() {
+  const dispatch = useDispatch();
   const { token } = useAuth();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
@@ -25,7 +27,6 @@ export default function ProfileSecurity() {
   });
   const t = useTranslations();
 
-  const { isUpcomingPage, setIsUpcoming, setUserName } = useUpcomingPage();
 
   const handleEdit = (field: string) => {
     setIsEditable((prev) => ({
@@ -41,7 +42,7 @@ export default function ProfileSecurity() {
         [field]: field === "password" ? password : eval(field), // В зависимости от поля, отправляем соответствующее значение
       }, {
         headers: {
-          Authorization: `Bearer ${token.token}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -66,7 +67,7 @@ export default function ProfileSecurity() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -97,7 +98,7 @@ export default function ProfileSecurity() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -127,7 +128,7 @@ export default function ProfileSecurity() {
         },
         {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         }
       );
@@ -161,7 +162,7 @@ export default function ProfileSecurity() {
       try {
         const response = await axios.get('/api/profile/user/info', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
 
@@ -179,11 +180,11 @@ export default function ProfileSecurity() {
     };
 
     fetchData();
-  }, [token.token]);
+  }, [token]);
 
   return (
     <div className="profileSecurity">
-      <div className="title flex items-center gap-[10px]" onClick={() => setIsUpcoming(false)}>
+      <div className="title flex items-center gap-[10px]" onClick={() => dispatch(setIsUpcomingPage(false))}>
         <div className='lg:hidden'>
           <Image src={"/images/icons/left-children.svg"} width={20} height={20} alt='' />
         </div>

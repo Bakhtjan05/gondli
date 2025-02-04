@@ -5,11 +5,12 @@ import React from 'react';
 import './PrivacySharing.scss';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useUpcomingPage } from '../../UpcomingPageContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 export default function PrivacySharingSettings() {
+  const dispatch = useDispatch();
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
 
   const privacySettings = [
     {
@@ -32,7 +33,7 @@ export default function PrivacySharingSettings() {
   const t = useTranslations();
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   return (

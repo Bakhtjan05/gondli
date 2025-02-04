@@ -5,12 +5,14 @@ import React from 'react';
 import './Preference.scss';
 import { Edit } from '@/icons';
 import { useTranslations } from 'next-intl';
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import Image from 'next/image';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
+
 
 export default function PreferencSetting() {
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
+  const dispatch = useDispatch();
 
   const preferences = [
     {
@@ -30,7 +32,7 @@ export default function PreferencSetting() {
   const t = useTranslations();
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   return (

@@ -10,12 +10,11 @@ import {
   UserLogo,
 } from '@/icons';
 import { useTranslations } from 'next-intl';
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import { useEffect, useState } from 'react';
 import axios from '@/lib/axios';
 import { useAuth } from '@/types/auth';
-
-
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 
 const Bookings: React.FC = () => {
@@ -52,17 +51,17 @@ const Bookings: React.FC = () => {
       services: ['Spa', 'Aromatherapy', 'Relaxation'],
     },
   ];
+  const dispatch = useDispatch();
 
   const { token } = useAuth();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
 
   const t = useTranslations();
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   useEffect(() => {
@@ -70,7 +69,7 @@ const Bookings: React.FC = () => {
       try {
         const response = await axios.get('/api/profile/bookings', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setData(response.data?.data?.upcoming || []); // Сохраняем данные в состоянии
@@ -87,7 +86,7 @@ const Bookings: React.FC = () => {
     <div className='container-block'>
       <div className='title flex items-center gap-[10px]' onClick={backToNavbar}>
         <div className='lg:hidden'>
-          <Image src={"/images/icons/left-children.svg"} width={20} height={20} alt=''/>
+          <Image src={"/images/icons/left-children.svg"} width={20} height={20} alt='' />
         </div>
 
         <h2 className='max-lg:!mb-0 max-lg:!text-xl'>{t(`upcomingBookings`)}</h2>
