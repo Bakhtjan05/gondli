@@ -1,14 +1,10 @@
 
 import CenterDetails from "../_components/CenterDetails/CenterDetails";
 
-interface PageProps {
-  params: { id: string };
-}
-
-export default function CharityEvent({ params }: PageProps) {
+export default function CharityEvent({ params }: { params: { id: string } }) {
   return (
     <main>
-      <CenterDetails serviceId={(params as { id: string }).id} />
+      <CenterDetails serviceId={params.id} />
     </main>
   );
 }
