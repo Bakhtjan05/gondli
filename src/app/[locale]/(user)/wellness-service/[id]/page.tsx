@@ -4,10 +4,12 @@ interface PageProps {
   params: { id: string };
 }
 
-export default function CharityEvent({ params }: PageProps) {
+export default async function CharityEvent({ params }: PageProps) {
+  const id = await Promise.resolve(params.id);
+
   return (
     <main>
-      <CenterDetails serviceId={params.id} />
+      <CenterDetails serviceId={id} />
     </main>
   );
 }
