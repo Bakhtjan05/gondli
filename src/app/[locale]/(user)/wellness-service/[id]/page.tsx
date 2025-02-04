@@ -1,15 +1,14 @@
+
 import CenterDetails from "../_components/CenterDetails/CenterDetails";
 
 interface PageProps {
   params: { id: string };
 }
 
-export default async function CharityEvent({ params }: PageProps) {
-  const id = await Promise.resolve(params.id);
-
+export default function CharityEvent({ params }: PageProps) {
   return (
     <main>
-      <CenterDetails serviceId={id} />
+      <CenterDetails serviceId={params.id} />
     </main>
   );
 }
