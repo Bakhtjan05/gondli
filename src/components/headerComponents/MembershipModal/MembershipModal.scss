@@ -1,0 +1,158 @@
+@use 'sass:meta';
+
+.membership-modal {
+  color: #000b19;
+  width: 920px;
+
+  .modal-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .title-heading {
+    font-family: 'Gilroy-Regular';
+    font-size: 28px;
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #000b19;
+  }
+  .pro-link {
+    font-family: 'Gilroy-Regular';
+    font-weight: 400;
+    text-decoration: underline;
+    line-height: 19.18px;
+    size: 16px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+
+  .plan {
+    padding: 16px 24px;
+    border: 1.5px solid #dbecf0;
+    border-radius: 12px;
+    cursor: pointer;
+
+    &.active {
+      border-width: 1.5px;
+      border-color: #124c59;
+    }
+
+    &:nth-of-type(1) {
+      margin-right: 10px;
+    }
+    &:nth-of-type(2) {
+      margin-left: 10px;
+    }
+  }
+  .plan-name {
+    font-family: 'Gilroy-Regular';
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 21.25px;
+    margin-bottom: 18px;
+    color: #000b19;
+  }
+  .plan-price {
+    font-family: 'Gilroy-Regular';
+    margin-bottom: 14px;
+    font-weight: 500;
+    font-size: 28px;
+    color: #000b19;
+    display: flex;
+    align-items: flex-start;
+
+    .month {
+      color: #878e97;
+      font-size: 18px;
+      font-weight: 0;
+      margin-left: 6px;
+    }
+  }
+  .plan-payment-interval {
+    margin-bottom: 24px;
+    color: #878e97;
+  }
+
+  .plan-description {
+    line-height: 19.18px;
+    font-size: 16px;
+  }
+  .pro-membership-toggle {
+    margin-top: 24px;
+
+    & > .button-group {
+      background-color: #ffffff;
+      width: 100%;
+      border: 1px solid #dbecf0;
+      border-radius: 100px;
+      label.toggle-button {
+        padding: 12px;
+        width: 100%;
+        border-radius: 100px;
+        border-top-right-radius: 100px;
+        border-bottom-right-radius: 100px;
+        &.active {
+          background-color: #0c343d;
+          color: #ffffff;
+          z-index: 2;
+        }
+        &.inactive {
+          border: none;
+          background-color: #ffffff;
+          color: #000b19;
+          z-index: 1;
+        }
+      }
+    }
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #dbecf0;
+  }
+
+  .pro-plan .divider {
+    margin-top: 20px;
+  }
+
+  .basic-plan .divider {
+    margin-top: 58px;
+  }
+
+  ul {
+    margin-top: 20px;
+    &.benefits {
+      list-style: none;
+      li {
+        display: flex;
+        align-items: center;
+        margin-bottom: 14px;
+        &:last-of-type {
+          margin-bottom: 0;
+        }
+      }
+      :first-child {
+        margin-right: 11px;
+      }
+    }
+  }
+
+  .plan-button {
+    margin-top: 40px;
+    width: 100%;
+    border-radius: 100px;
+    padding: 16.5px 0;
+    border: none;
+    &.free-plan-button {
+      background: #f4f9ec;
+      color: #abcf6f;
+      width: 100%;
+      border-radius: 100px;
+      border: 1px solid #deecc6;
+    }
+    &.pro-plan-button {
+      background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+    }
+  }
+}

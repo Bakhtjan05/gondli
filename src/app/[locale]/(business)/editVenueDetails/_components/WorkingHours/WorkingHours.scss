@@ -1,0 +1,183 @@
+.workingHours {
+  background-color: #fff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  margin: 40px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+
+  @media (max-width: 1024px) {
+    margin: 20px 16px 96px 16px !important;
+    
+  }
+
+  &__title {
+    margin-bottom: 24px;
+
+    h2 {
+      font-size: 16px;
+      line-height: 21.25px;
+      font-weight: bold;
+      color: #000b19;
+      margin-bottom: 8px;
+    }
+
+    p {
+      font-size: 14px;
+      font-weight: 400;
+      line-height: 16.78px;
+      color: #878e97;
+    }
+  }
+
+  &__fields {
+    display: grid;
+  }
+
+  &__field {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10.5px 0;
+    position: relative;
+  }
+
+  &__day-container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__checkbox {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 1px solid #dbecf0;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 12px;
+    position: relative;
+
+    &:checked {
+      background-color: #0c343d;
+      border: 1px solid #176677;
+
+      &::after {
+        content: '';
+        position: absolute;
+        display: block;
+        width: 11px;
+        height: 11px;
+        background-image: url('/images/icons/check.svg');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  &__day {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 19.18px;
+    color: #000b19;
+    transition: filter 0.3s;
+
+    &.disabled {
+      color: #999da3;
+      opacity: 0.6;
+    }
+  }
+
+  &__time-select {
+    display: flex;
+    gap: 12px;
+  }
+
+  .availability__select {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.78px;
+    color: #000b19;
+    text-align: center;
+    border: 1px solid #dbecf0;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 5px 0;
+    background-color: #fff;
+    appearance: none;
+    cursor: pointer;
+    transition: filter 0.3s;
+
+    // Add specific styles for time input
+    &[type='time'] {
+      font-family: 'Gilroy-Regular';
+      font-size: 14px;
+      padding: 10px;
+
+      // Hide the calendar picker indicator
+      &::-webkit-calendar-picker-indicator {
+        display: none;
+      }
+
+      // Hide AM/PM indicator
+      &::-webkit-datetime-edit-ampm-field {
+        display: none;
+      }
+
+      &::-webkit-datetime-edit {
+        padding: 0;
+        text-align: center;
+      }
+
+      &::-webkit-datetime-edit-fields-wrapper {
+        padding: 0;
+      }
+
+      &::-webkit-datetime-edit-hour-field,
+      &::-webkit-datetime-edit-minute-field {
+        padding: 0 2px;
+      }
+
+      &::-webkit-datetime-edit-text {
+        padding: 0;
+      }
+    }
+
+    // For Firefox
+    &[type='time']::-moz-time-text {
+      -moz-appearance: none;
+    }
+
+    &:focus {
+      border-color: #ccc;
+      outline: none;
+      box-shadow: 0 0 3px rgba(124, 126, 128, 0.5);
+    }
+
+    &:disabled {
+      background-color: #f8f8f8;
+      color: #dee5e7;
+      cursor: not-allowed;
+      border: none;
+    }
+  }
+
+  &__divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #ddd;
+    margin: 0;
+    border: none;
+  }
+
+  // Blur effect for individual elements when checkbox is unchecked
+  .blurred {
+    filter: blur(2px);
+    color: #aaa;
+  }
+}

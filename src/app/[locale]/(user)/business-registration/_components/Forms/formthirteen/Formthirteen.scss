@@ -1,0 +1,94 @@
+.form-thirteen {
+  overflow: hidden;
+
+  &-main {
+    margin-top: 74px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100%;
+    padding: 0px 20px;
+  }
+
+  &-box {
+    border-radius: 24px;
+    width: 100%;
+    max-width: 800px;
+    padding: 32px 24px;
+  }
+}
+
+.available-additions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: left;
+}
+
+.addition-tag {
+  width: 179px;
+  height: 106px;
+  padding: 14px 24px;
+  border-radius: 12px;
+  transition:
+    background-color 0.3s,
+    border-color 0.3s;
+
+  &.selected {
+    border-radius: 12px;
+    border-image-source: linear-gradient(
+      266.66deg,
+      #5cb170 -7.81%,
+      #d6de6d 118.14%
+    );
+    border-image-slice: 1; /* Enables the gradient effect as a border */
+  }
+
+  &.selected::before {
+    content: '';
+    position: absolute;
+
+    border-radius: 12px; /* Apply border radius here */
+    padding: 1.5px; /* Adjust padding to create the border width */
+    background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  &:hover {
+    background: #c3c3c3;
+    background-blend-mode: luminosity;
+  }
+}
+
+.gradient-thirteen-border {
+  position: relative;
+  background: #c3c3c34d;
+  overflow: hidden;
+}
+
+.gradient-thirteen-border::before {
+  content: '';
+  position: absolute;
+  border-radius: 12px;
+  background: linear-gradient(
+    156.52deg,
+    rgba(255, 255, 255, 0.25) 2.12%,
+    rgba(255, 255, 255, 0.02) 57.18%,
+    rgba(255, 255, 255, 0.02) 65.84%,
+    rgba(255, 255, 255, 0.1) 93.02%
+  );
+}
+
+.thirteen-icon {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
+}

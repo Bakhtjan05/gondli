@@ -1,0 +1,118 @@
+.spotify-blend {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 0;
+  /* Input Field */
+
+
+  .input-container {
+    padding: 1px;
+    background: linear-gradient(90deg, #D6DE6D, #5CB170);
+    border-radius: 8px;
+    position: relative;
+
+    .left-border{
+      position: absolute;
+      height: 18px;
+      top: 32%;
+      left: 2%;
+      border-left: 1px solid #ABCF6F;
+    }
+
+    input {
+      background-color: white;
+      padding: 15px;
+      border-radius: 6px;
+       
+      &:focus{
+        outline: none;
+        box-shadow:1px 1px 5px #D6DE6D;
+      }
+    }
+  }
+
+  .spotify-blend__pro-tip{
+
+    background-image: url('/images/icons/spotify-bg.png');
+    background-position: 97% center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @media (max-width: 1024px) {
+      background-image: url('/images/icons/spotify-bg-mb.png');
+      background-position: 50% center;
+
+
+    }
+
+    .spotify-blend__text{
+      width: 300px;
+      line-height: 20px;
+      font-size: 16px;
+      font-weight: 400;
+      color: #FFFFFF;
+
+      @media (max-width: 1024px) {
+        width: auto;
+  
+  
+      }
+      
+      span:nth-child(1){
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 22px;
+      }
+      span:nth-child(3){
+        text-decoration: underline;
+      }
+    }
+
+    .spotify-image {
+      img {
+        @media (max-width: 1024px) {
+          width: 90px;
+    
+    
+        }
+      }
+    }
+  }
+  
+
+  &__input {
+    width: 100%;
+    padding: 12px;
+
+    &::placeholder {
+      color: #a1a1a1;
+    }
+  }
+
+  /* Pro Tip Section */
+  &__pro-tip {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    height: 100px;
+    background-color: #0c343d;
+    border-radius: 12px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/path/to/music-notes-background.svg');
+      background-size: cover;
+      opacity: 0.1;
+      z-index: 0;
+    }
+  }
+}

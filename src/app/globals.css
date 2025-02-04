@@ -1,0 +1,126 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  .glass-border {
+    @apply absolute inset-0 p-px.62;
+  }
+
+  .glass-border:before {
+    @apply absolute inset-0 bg-glass-border p-px.62 content-[''];
+    border-radius: 12px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    -webkit-mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+  }
+}
+
+@font-face {
+  font-family: 'Gilroy-Light';
+  src: url(../../public/fonts/gilroy-regular.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-Regular';
+  src: url(../../public/fonts/gilroy-medium.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-Medium';
+  src: url(../../public/fonts/gilroy-medium.ttf);
+}
+
+@font-face {
+  font-family: 'Gilroy-SemiBold';
+  src: url(../../public/fonts/gilroy-semibold.ttf);
+}
+
+.font-light {
+  font-family: 'Gilroy-Light';
+  src: url(../../public/fonts/gilroy-regular.ttf);
+}
+
+.font-regular {
+  font-family: 'Gilroy-Regular';
+  src: url(../../public/fonts/gilroy-regular.ttf);
+}
+
+.font-medium {
+  font-family: 'Gilroy-Medium';
+  src: url(../../public/fonts/gilroy-medium.ttf);
+}
+
+.font-semibold {
+  font-family: 'Gilroy-SemiBold';
+  src: url(../../public/fonts/gilroy-medium.ttf);
+}
+
+
+
+
+
+body {
+  font-family: 'Gilroy-Regular';
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Gilroy-Medium';
+}
+
+.container {
+  max-width: 1408px;
+  margin: 0 auto;
+  padding: 0 15px;
+  width: 100%;
+}
+
+@media screen and (max-width: 1600px) {
+  .container {
+    max-width: 1230px;
+  }
+}
+
+.container:after {
+  display: block;
+  clear: both;
+}
+
+@media screen and (max-width: 767px) {
+  .logoWrap {
+    width: auto;
+  }
+
+  .logoWrap img {
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .headerSearch .headerInput {
+    min-width: 400px;
+  }
+}
+
+.modal {
+  background: rgba(0, 11, 25, 0.8);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus {
+  -webkit-text-fill-color: rgba(0, 11, 25, 1);
+  -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}

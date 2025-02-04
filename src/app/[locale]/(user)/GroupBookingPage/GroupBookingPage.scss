@@ -1,0 +1,896 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  font-weight: 600;
+
+}
+
+.box {
+  color: #000B19;
+  background-color: #F5F9FF;
+  position: relative;
+}
+
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  /* Optional padding */
+  padding-right: 1rem;
+  position: relative;
+
+}
+
+@media (min-width: 640px) {
+
+  /* sm */
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+
+  /* md */
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+
+  /* lg */
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+
+  /* xl */
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+
+  /* 2xl */
+  .container {
+    max-width: 1536px;
+  }
+}
+
+
+
+
+h1 {
+  font-size: 28px;
+  font-weight: 600;
+  padding-top: 120px;
+  padding-bottom: 40px;
+
+  @media (max-width: 1024px) {
+    font-size: 16px;
+    padding-top: 110px;
+    padding-bottom: 24px;
+  }
+}
+
+.main {
+  display: flex;
+  gap: 60px;
+
+  @media screen and (max-width: 990px) {
+    flex-direction: column;
+    gap: 0px;
+  }
+}
+
+.confirm-details {
+  .spotify {
+    margin-top: 24px;
+    display: flex;
+    align-items: center;
+    gap: 78px;
+    border-top: 1px solid #DBECF0;
+    background-image: url("/images/booking/spotify-background.png");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: white;
+    padding: 20px 16px 24px 24px;
+    border-radius: 20px;
+
+    @media (max-width: 1024px) {
+      background-image: url("/images/booking/spotify-mobile-background.png");
+      flex-direction: column;
+      align-items: start;
+      gap: 28px;
+    }
+
+    .text-side {
+      z-index: 0;
+
+      @media (max-width: 1024px) {
+        order: 2;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      p {
+        letter-spacing: 1px;
+        line-height: 19.18px;
+
+        @media (max-width: 1024px) {
+          font-size: 14px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 16.78px;
+          text-align: left;
+          text-underline-position: from-font;
+          text-decoration-skip-ink: none;
+
+        }
+      }
+
+      button {
+        padding: 14px 20px;
+        border-radius: 20px;
+        margin-top: 30px;
+        cursor: pointer;
+        border: none;
+        color: white;
+        font-size: 14px;
+        background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+        position: relative;
+
+        &::after {
+          position: absolute;
+          top: -2px;
+          bottom: -1.5px;
+          left: -1.5px;
+          right: -2px;
+          content: "";
+          z-index: -1;
+          border-radius: 100px;
+          background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+        }
+
+        &:hover {
+          background: #0c343d;
+          color: #fff;
+        }
+      }
+    }
+
+    .logo-side {
+      @media (max-width: 1024px) {
+
+        order: 1;
+
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+    }
+  }
+
+  .contact-info {
+    margin-top: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #DBECF0;
+
+    h2 {
+      font-size: 16px;
+      padding-top: 24px;
+      border-top: 1px solid #DBECF0;
+    }
+
+    form {
+      margin-top: 12px;
+
+
+      input {
+        width: 100%;
+        padding: 16px 24px 16px 16px;
+        margin-top: 12px;
+        border-radius: 16px;
+        font-size: 14px;
+        border: 1px solid #DBECF0;
+      }
+
+      .contact-input {
+        &:focus {
+          outline: 1px solid #98C76F !important;
+        }
+      }
+
+      input::placeholder {
+        color: #878E97;
+      }
+
+      .checkbox {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 12px;
+        margin-top: 24px;
+        padding-bottom: 24px;
+
+        .checkbox-block {
+          border: 1px solid #DBECF0;
+          width: 20px;
+          height: 20px;
+          border-radius: 4px;
+          cursor: pointer;
+          padding: 3px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .active {
+            display: block;
+          }
+
+        }
+
+        .checkbox-block.active {
+          background-color: #0C343D;
+        }
+
+
+
+        input {
+          width: 100%;
+          height: 100%;
+
+
+        }
+      }
+    }
+  }
+
+  .attending {
+    h2 {
+      font-size: 16px;
+    }
+
+    p {
+      font-size: 14px;
+      color: #878E97;
+      margin-top: 8px;
+      margin-bottom: 24px;
+    }
+
+    .checkbox {
+      display: flex;
+      align-items: center;
+      padding-bottom: 0 !important;
+
+      .checkbox.active {
+        background-color: #0C343D;
+
+        .active {
+          display: block;
+        }
+      }
+
+      p {
+        margin: 0;
+        padding: 0;
+        color: #000B19;
+        font-size: 16px;
+      }
+
+
+
+    }
+
+    input {
+      &:focus {
+        outline: 1px solid #98C76F !important;
+      }
+    }
+  }
+
+  .payment {
+    margin-top: 24px;
+    padding-bottom: 24px;
+
+    .pay-full {
+      position: relative;
+      margin-top: 24px;
+      padding: 20px 24px;
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      overflow: hidden;
+      cursor: pointer;
+
+      p:nth-child(1) {
+        font-weight: 600;
+      }
+
+      p:nth-child(2) {
+        font-size: 14px;
+        color: #878E97;
+        margin-top: 8px;
+      }
+
+      .checkbox {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        border-style: solid;
+        border-width: 0 36px 36px 36px;
+        border-color: transparent transparent #DBECF0 transparent;
+        transform: rotate(0deg);
+        top: -51px;
+        right: -33px;
+        rotate: 45deg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox.active {
+        border-color: transparent transparent #0C343D transparent;
+      }
+
+      .check-circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        border: 1px solid #124C59;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 8px;
+        right: 7px;
+        z-index: 2;
+
+        img {
+          display: none;
+        }
+
+        img.active {
+          display: block;
+        }
+      }
+
+      .check-circle.active {
+        background-color: white;
+        border: none;
+
+      }
+
+    }
+
+    .pay-full.active {
+      border: 1px solid #124C59;
+    }
+
+    .pay-part {
+      position: relative;
+      margin-top: 12px;
+      padding: 20px 24px;
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      overflow: hidden;
+      cursor: pointer;
+
+      p:nth-child(1) {
+        font-weight: 600;
+      }
+
+      p:nth-child(2) {
+        font-size: 14px;
+        color: #878E97;
+        margin-top: 8px;
+      }
+
+      .checkbox {
+        position: absolute;
+        width: 48px;
+        height: 48px;
+        border-style: solid;
+        border-width: 0 36px 36px 36px;
+        border-color: transparent transparent #DBECF0 transparent;
+        transform: rotate(0deg);
+        top: -51px;
+        right: -33px;
+        rotate: 45deg;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .checkbox.active {
+        border-color: transparent transparent #0C343D transparent;
+
+      }
+
+      .check-circle {
+        width: 12px;
+        height: 12px;
+        border-radius: 999px;
+        border: 1px solid #124C59;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        top: 8px;
+        right: 7px;
+        z-index: 2;
+
+        img {
+          display: none;
+        }
+
+        img.active {
+          display: block;
+        }
+      }
+
+      .check-circle.active {
+        background-color: white;
+        border: none;
+
+      }
+
+    }
+
+    .pay-part.active {
+      border: 1px solid #124C59;
+    }
+  }
+
+  .promo-code {
+    border-bottom: 1ps solid #DBECF0;
+    padding-bottom: 24px;
+
+    .coupon-block {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      cursor: pointer;
+
+
+
+      div:nth-child(1) {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+
+        p {
+          font-size: 14px;
+        }
+      }
+
+      .dropdown-icon {
+        transition: transform 0.3s ease;
+      }
+
+      .dropdown-icon.active {
+        transform: rotate(180deg);
+      }
+
+      .promo-dropdown {
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        transform: translateY(100%);
+        display: none;
+        border: 1px solid #DBECF0;
+        border-radius: 20px;
+        overflow: hidden;
+        z-index: 6;
+
+        p {
+          font-size: 14px;
+          padding: 16px 72px 16px 18px;
+          background-color: white;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+
+
+        }
+
+        p:hover {
+          background-color: rgb(221, 221, 221);
+        }
+
+
+      }
+
+      .promo-dropdown.active {
+        display: block;
+
+
+      }
+    }
+
+    .promo-block {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 12px;
+      align-items: center;
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      cursor: pointer;
+      color: #878E97;
+      font-size: 14px;
+      overflow: hidden;
+      padding-right: 16px;
+
+      .promo-input {
+        padding: 0px;
+        margin: 0px;
+        border: none;
+        padding: 16px;
+        background-color: #F5F9FF;
+        color: #000B19;
+
+
+      }
+
+      .promo-input:focus {
+        outline: none;
+        border: none;
+        /* убирает рамку */
+      }
+
+
+    }
+
+    .coins-dropdown-block {
+      position: relative;
+
+      .discount-amount {
+
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+
+        .percent {
+          border-right: 1px solid #DBECF0;
+          padding-right: 12px;
+        }
+
+        .coins {
+          padding-left: 12px;
+        }
+
+      }
+
+      .coins-dropdown {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+        padding: 16px;
+        border-radius: 16px;
+        margin-top: 12px;
+        border: 1px solid #DBECF0;
+        background-color: white;
+        cursor: pointer;
+
+        .selected-default {
+          color: #878E97;
+        }
+
+        .dropdown-icon {
+          transition: transform 0.3s ease;
+        }
+
+        .dropdown-icon.active {
+          transform: rotate(180deg);
+
+        }
+
+        .available-coupon-choosen {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+      }
+
+      .dropdown-block {
+        width: 100%;
+        position: absolute;
+        bottom: -8px;
+        left: 0;
+        transform: translateY(100%);
+        border: 1px solid #5CB170;
+        display: none;
+        border-radius: 16px;
+        z-index: 5;
+        background-color: white;
+        color: #000B19;
+        overflow: hidden;
+        font-size: 14px;
+
+
+        .discount-amount {
+          padding: 20px;
+
+          &:hover {
+            background-color: rgb(221, 221, 221);
+          }
+
+        }
+
+
+
+        h3 {
+          margin-top: 24px;
+          padding-left: 16px;
+          margin-bottom: 16px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+
+        .available-coupon {
+          padding: 12px 16px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+
+          .title {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+          }
+
+          button {
+            background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+            color: white;
+            padding: 6px 8px;
+            border-radius: 20px;
+          }
+
+          &:hover {
+            background-color: rgb(221, 221, 221);
+          }
+        }
+
+      }
+
+      .dropdown-block.active {
+        display: block;
+      }
+
+      .coins-dropdown.active {
+        border-color: #5CB170;
+        color: #000B19;
+
+      }
+    }
+
+    .total-coins {
+      margin-top: 24px;
+
+      span {
+        font-weight: 600;
+      }
+    }
+
+
+
+
+  }
+
+  .pay-with {
+    border-bottom: 1px solid #DBECF0;
+
+    @media (max-width: 1024px) {
+      border: none;
+
+      .checkbox {
+        padding-bottom: 0px !important;
+      }
+    }
+
+    .debit-card {
+      display: flex !important;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 24px;
+      padding: 16px;
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      cursor: pointer;
+      position: relative;
+
+      div:nth-child(1) {
+        display: flex;
+        gap: 10px;
+
+      }
+    }
+
+    .dropdown-icon {
+      transition: transform 0.3s ease;
+    }
+
+    .dropdown-icon.active {
+      transform: rotate(180deg);
+      /* Угол поворота */
+    }
+
+    .card-dropdown {
+      width: 100%;
+      display: none;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      transform: translateY(100%);
+      border: 1px solid #DBECF0;
+      border-radius: 20px;
+      overflow: hidden;
+
+
+      p {
+        font-size: 14px;
+        padding: 16px 72px 16px 18px;
+        background-color: white;
+
+
+      }
+
+      p:hover {
+        background-color: rgb(221, 221, 221);
+      }
+    }
+
+    .card-dropdown.active {
+      display: block;
+    }
+
+    .card-number {
+      input {
+        padding: 16px;
+
+      }
+    }
+
+    .card-info {
+      display: flex;
+      gap: 12px;
+    }
+
+    input {
+      &:focus {
+        outline: 1px solid #98C76F !important;
+      }
+    }
+
+
+  }
+
+  .policy {
+    p {
+      margin-top: 24px;
+      font-size: 16px;
+      padding-bottom: 78px;
+
+      @media screen and (max-width: 990px) {
+        padding-bottom: 20px;
+      }
+
+      span {
+        font-weight: 600;
+      }
+
+      a {
+        font-weight: 600;
+      }
+    }
+  }
+
+  .payment-details {
+    padding: 24px;
+    border-radius: 20px;
+    border: 1px solid #DBECF0;
+    align-self: flex-start;
+    z-index: 0;
+
+    h2 {
+      margin-bottom: 40px;
+    }
+
+    .subscription {
+      padding: 20px;
+      border-radius: 20px;
+      color: white;
+      line-height: 20px;
+      background-image: url("/images/booking/subscription-frame.png");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 12px;
+
+      p {
+        text-wrap: nowrap;
+      }
+    }
+
+    .details {
+      border-radius: 20px;
+      border: 1px solid #DBECF0;
+      margin-bottom: 40px;
+
+      .choosen-service {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid #DBECF0;
+      }
+
+      .service-fee {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+        border-bottom: 1px solid #DBECF0;
+      }
+
+      .total {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 20px;
+      }
+    }
+
+    button {
+      width: 100%;
+      padding: 18px 0px;
+      border-radius: 100px;
+      color: white;
+      background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+      transition: all 0.3s;
+      position: relative;
+
+      &::after {
+        position: absolute;
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: -2px;
+        content: "";
+        z-index: -1;
+        border-radius: 100px;
+        background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+      }
+
+      &:hover {
+        background: #0c343d;
+        color: #fff;
+      }
+    }
+
+
+
+  }
+}

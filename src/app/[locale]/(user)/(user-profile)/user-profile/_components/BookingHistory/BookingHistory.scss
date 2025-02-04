@@ -1,0 +1,140 @@
+.container-block {
+  margin: 0 auto 80px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+  }
+
+  .title {
+    h2 {
+      color: #000b19;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 38px;
+    }
+  }
+
+  .bookingCard {
+    display: flex;
+    width: 844px;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f5f9ff;
+    border: 1px solid #dbecf0;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: #ffffff;
+      cursor: pointer;
+      border: 1px solid #124c59;
+    }
+
+    .status-section {
+      .attended {
+        background-color: #abcf6f;
+        display: flex;
+        gap: 4px;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 8px 10px;
+        border-radius: 16px;
+      }
+
+      .canceled {
+        display: flex;
+        gap: 4px;
+        font-size: 16px;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        padding: 8px 10px;
+        border-radius: 16px;
+        background-color: #d56c6c;
+      }
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px 24px;
+
+      @media (max-width: 1024px) {
+        padding: 16px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .booking-title {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 22px;
+          color: #000b19;
+        }
+
+        .services {
+          margin-top: 8px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          color: #878e97;
+        }
+
+
+      }
+
+      .details {
+        display: flex;
+        gap: 15px;
+        margin-top: 16px;
+
+        .divider {
+          height: full;
+          border-left: 2px solid #dbecf0;
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+
+          .date,
+          .address,
+          .service,
+          .instructor {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 16px;
+            font-weight: 500;
+            color: #000b19;
+          }
+        }
+      }
+    }
+
+    .imageWrapper {
+      position: relative;
+      height: full;
+      width: 221px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+
+      @media (max-width: 1024px) {
+        border-bottom-right-radius: 0px;
+      }
+    }
+  }
+}

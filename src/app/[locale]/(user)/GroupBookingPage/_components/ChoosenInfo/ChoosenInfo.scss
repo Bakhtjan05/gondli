@@ -1,0 +1,38 @@
+.choosen-info {
+  padding: 10px 0px 10px 20px;
+  border-left: 1px solid #dbecf0;
+  
+  @media (max-width: 1024px) {
+    padding: 10px 0px 10px 10px;
+
+}
+
+  .choosen-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    div:nth-child(1) {
+      p:nth-child(2) {
+        font-size: 14px;
+        color: #878e97;
+        margin-top: 5px;
+      }
+    }
+
+    div:nth-child(2) {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      cursor: pointer;
+    }
+  }
+
+  .choosen-block:nth-child(2) {
+    margin-top: 20px;
+  }
+
+  .choosen-block:nth-child(3) {
+    margin-top: 20px;
+  }
+}

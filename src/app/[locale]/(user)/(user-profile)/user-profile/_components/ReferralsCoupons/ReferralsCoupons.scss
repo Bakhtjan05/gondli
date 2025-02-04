@@ -1,0 +1,134 @@
+.referralsCoupons {
+  margin: 0 auto 80px auto;
+  padding-left: 16px;
+
+  .title {
+    color: #000b19;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 38px;
+    margin-bottom: 40px;
+  }
+
+  .section {
+    margin-bottom: 24px;
+    width: 844px;
+
+    h2 {
+      font-size: 16px;
+      color: #000b19;
+      font-weight: 500;
+      margin-bottom: 28px;
+      line-height: 22px;
+    }
+  }
+
+  .couponList,
+  .userList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    .couponItem {
+      padding: 12px 0;
+
+      .couponInfo {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+
+        .info {
+          flex: 1;
+
+          .title {
+            font-weight: 500;
+            font-size: 16px;
+            margin-bottom: 6px;
+            color: #000b19;
+            line-height: 20px;
+          }
+
+          .description {
+            font-weight: 400;
+            font-size: 14px;
+            color: #878e97;
+            line-height: 17px;
+          }
+        }
+
+        .code {
+          font-size: 14px;
+          color: white;
+          padding: 8px 14px;
+          border-radius: 12px;
+          background-color: #0c343d;
+          cursor: pointer;
+
+          .copyText {
+            color: #878e97;
+            font-size: 12px;
+            margin-left: 4px;
+          }
+        }
+      }
+    }
+
+    .userItem {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 2px solid #dbecf0;
+      position: relative;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .userImage {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      .userInfo {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: center;
+
+        .name {
+          font-size: 16px;
+          font-weight: 500;
+          color: #000b19;
+          line-height: 20px;
+        }
+
+        .email {
+          font-size: 14px;
+          color: #878e97;
+          font-weight: 400;
+          line-height: 17px;
+        }
+      }
+
+      .followButton {
+        margin-left: auto;
+        width: 100px;
+        padding: 6px 12px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 28px;
+        cursor: pointer;
+        font-size: 16px;
+
+        &:hover {
+          background-color: #0056b3;
+        }
+      }
+    }
+  }
+}

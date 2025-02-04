@@ -1,0 +1,59 @@
+.box-header {
+    height: 58px;
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #F5F9FF;
+
+    @media (max-width: 1024px) {
+        padding: 24px;
+    }
+
+    .name {
+        font-weight: 600;
+    }
+
+    .profile-notification {
+        display: flex;
+        align-items: center;
+
+        @media (max-width: 1024px) {
+            display: none;
+        }
+
+        .notification {
+            padding-right: 21px;
+            border-right: 1px solid #DBECF0;
+            cursor: pointer;
+        }
+
+        .profile {
+
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            .profile-picture {
+                padding-left: 21px;
+                cursor: pointer;
+            }
+    
+            .profile-photo-name {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                cursor: pointer;
+            }
+
+        }
+
+        
+    }
+
+    .bar {
+        @media (min-width: 1024px) {
+            display: none;
+        }
+    }
+}

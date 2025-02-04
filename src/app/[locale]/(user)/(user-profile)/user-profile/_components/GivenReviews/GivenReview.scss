@@ -1,0 +1,135 @@
+.container-block {
+  margin: 0 auto 80px auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+  }
+
+  .title {
+    h2 {
+      color: #000b19;
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      line-height: 38px;
+    }
+  }
+
+  .reviewCard {
+    display: flex;
+    width: 844px;
+    overflow: hidden;
+    border-radius: 12px;
+    background-color: #f5f9ff;
+    border: 1px solid #dbecf0;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    &:hover {
+       background-color: #ffffff;
+       cursor: pointer;
+       border: 1px solid #124c59;
+    }
+
+    .content {
+      flex: 1;
+      padding: 20px 24px;
+
+      @media (max-width: 1024px) {
+        padding: 16px;
+      }
+
+      .header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+
+        .review-title {
+          font-size: 16px;
+          font-weight: 600;
+          line-height: 22px;
+          color: #000b19;
+        }
+
+        .services {
+          margin-top: 8px;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          color: #878e97;
+        }
+      }
+
+      .details {
+        display: flex;
+        gap: 15px;
+        margin-top: 16px;
+
+        
+
+        .divider {
+          height: full;
+          border-left: 2px solid #dbecf0;
+        }
+
+        .info {
+          margin-top: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 40px;
+
+          .review-card-footer {
+            display: flex;
+            color: #878e97;
+            gap: 10px;
+
+            @media (max-width: 1024px) {
+              font-size: 14px;
+              flex-wrap: wrap;
+              align-items: center;
+            }
+
+            .rating-section {
+              display: flex;
+              justify-content: start;
+              align-items: center;
+              gap: 6px;
+
+              .rating {
+                color: #f4b003;
+              }
+            }
+
+            .dot {
+              width: 4px;
+              height: 4px;
+              background-color: #878E97;
+              border-radius: 999px;
+            }
+          }
+        }
+      }
+    }
+
+    .imageWrapper {
+      position: relative;
+      height: full;
+      width: 221px;
+      flex-shrink: 0;
+      overflow: hidden;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 8px;
+      margin-left: 24px;
+
+      @media (max-width: 1024px) {
+        border-bottom-right-radius: 0px;
+        margin-left: 0px;
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+.paymentMethods {
+  margin: 0 auto 80px auto;
+  padding-left: 16px;
+
+  @media (max-width: 1024px) {
+    padding-left: 0px;
+  }
+
+  .title {
+    margin-bottom: 40px;
+
+    h2 {
+      color: #000b19;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 38px;
+    }
+  }
+
+  .paymentCard {
+    width: 844px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      gap: 4px;
+    }
+
+    .paymentInfo {
+      display: flex;
+      justify-content: space-between;
+      padding: 16px;
+
+      @media (max-width: 1024px) {
+        padding-left: 4px;
+      }
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 8px;
+
+        .type {
+          font-size: 14px;
+          font-weight: 400;
+          color: #878e97;
+        }
+        .expiration {
+          font-size: 16px;
+          font-weight: 400;
+          color: #878e97;
+        }
+        .divider {
+          display: flex;
+          width: 1px;
+          height: 16px;
+          background-color: #ccc;
+          margin: 0 12px;
+        }
+      }
+
+      .actions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        gap: 14px;
+      }
+    }
+  }
+
+  .addPayment {
+    height: 40px;
+    width: 180px;
+    margin-top: 28px;
+    margin-left: 16px;
+  }
+
+  .border-btm {
+    border-bottom: 2px solid #dbecf0;
+  }
+
+  .setDefaultButton,
+  .removeButton {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+}

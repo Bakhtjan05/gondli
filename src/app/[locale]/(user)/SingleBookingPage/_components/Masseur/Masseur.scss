@@ -1,0 +1,119 @@
+.masseur {
+    border-top: 1px solid #DBECF0;
+    border-bottom: 1px solid #DBECF0;
+    padding: 24px 0px;
+
+    h2 {
+        padding-top: 30px;
+    }
+
+    
+
+    .masseur-col {
+        overflow-x: scroll;
+        display: flex;
+        gap: 10px;
+        margin-top: 30px;
+    }
+
+    .masseur-any {
+        .circle {
+            background-color: #0C343D;
+            padding: 18px;
+            border-radius: 999px;
+
+            img {
+                width: 24px;
+                height: 24px;
+            }
+        }
+    }
+
+    .masseur-block {
+        width: 100%;
+        min-width: 162px;
+        flex: 1 1 0%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid #DBECF0;
+        border-radius: 20px;
+        height: 227px;
+        position: relative;
+        overflow: hidden !important;
+        cursor: pointer;
+        text-align: center;
+
+        p:nth-child(2) {
+            margin-top: 40px;
+            font-weight: 600;
+        }
+
+        p:nth-child(3) {
+            margin-top: 12px;
+            font-size: 14px;
+            font-weight: 300;
+            color: #F4B003;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .checkbox {
+            position: absolute;
+            width: 68px;
+            height: 68px;
+            border-style: solid;
+            border-width: 0 48px 48px 48px;
+            border-color: transparent transparent #DBECF0 transparent;
+            transform: rotate(0deg);
+            top: -41px;
+            right: -40px;
+            rotate: 45deg;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .checkbox.active {
+            border-color: transparent transparent #0C343D transparent;
+        }
+
+        .check-circle {
+            width: 12px;
+            height: 12px;
+            border-radius: 999px;
+            border: 2px solid #124C59;
+            position: absolute;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            top: 10px;
+            right: 6px;
+            z-index: 2;
+
+            img {
+                display: none;
+            }
+
+            img.active {
+                display: block;
+            }
+        }
+
+        .check-circle.active {
+            background-color: white;
+            border: none;
+
+        }
+
+
+    }
+
+    .masseur-block.active {
+        border: 1px solid #124C59;
+    }
+
+
+}

@@ -1,0 +1,586 @@
+.block-recurring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 11, 25, 0.8);
+    z-index: 99;
+
+    .recurring-info {
+        width: 100%;
+        max-width: 600px;
+        background-color: white;
+        position: relative;
+        z-index: 999;
+        border-radius: 16px;
+        
+
+        @media (max-width: 1024px) {
+            max-height: 90%;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+            overflow-y: auto ;
+        }
+
+
+        .title {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 24px 12px 24px 24px;
+
+            h2 {
+                font-weight: 600;
+
+                span {
+                    color: #95C66F;
+                    padding-left: 2px;
+                }
+            }
+
+            div {
+                cursor: pointer;
+            }
+
+
+        }
+
+        .main-discount {
+            display: flex;
+            flex-direction: column;
+            padding: 24px 24px 0px 24px;
+
+
+
+            h1 {
+                font-size: 28px;
+                font-weight: 600;
+                text-align: center;
+                margin-bottom: 12px;
+
+            }
+
+            .description {
+                font-size: 16px;
+                line-height: 18px;
+                text-align: center;
+
+
+                span {
+                    font-weight: 600;
+                }
+            }
+
+            .select-reason {
+                border-radius: 16px;
+                border: 1px solid #DBECF0;
+                margin-top: 20px;
+
+                .title {
+                    padding: 20px;
+                    background: #DBECF0;
+                    font-size: 14px;
+                    border-top-left-radius: 16px;
+                    border-top-right-radius: 16px;
+                }
+
+                .options {
+                    padding: 20px;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 16px;
+
+                    .select-week {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #DBECF0;
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #DBECF0;
+                            border-radius: 14px;
+                            position: relative;
+
+                            .input {
+                                padding-right: 12px;
+                                border-right: 1px solid #DBECF0;
+                            }
+
+                            .down-image-block {
+                                padding: 0px 12px;
+                                cursor: pointer;
+                            }
+
+                            p {
+                                padding: 16px;
+                            }
+
+                            .schedule-dropdown {
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                transform: translateY(100%);
+                                z-index: 2;
+                                background-color: rgb(243, 243, 243);
+                                display: none;
+                                border-radius: 14px;
+                                border: 1px solid #DBECF0;
+                                overflow: hidden;
+
+                                p {
+                                    padding: 12px 16px;
+                                    border-bottom: 1px solid #DBECF0;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: rgb(204, 204, 204);
+                                    }
+                                }
+                            }
+
+                            .schedule-dropdown.active {
+                                display: block;
+                            }
+
+                        }
+                    }
+
+                    .select-min {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #DBECF0;
+                            border-radius: 14px;
+
+                            .input {
+                                padding: 16px 16px 16px 16px;
+                                border-right: 1px solid #DBECF0;
+                            }
+
+                            input {
+                                width: 36px;
+                            }
+
+                            input:focus {
+                                border: none;
+                                outline: none;
+                            }
+
+                            .down-image-block {
+                                padding: 0px 12px;
+                            }
+
+                            p {
+                                padding: 16px;
+                            }
+
+                        }
+                    }
+
+                    .select-account {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 24px;
+                        border-bottom: 1px solid #DBECF0;
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+                            display: flex;
+                            align-items: center;
+
+                            .checkbox {
+                                display: flex;
+                                justify-content: flex-start;
+                                align-items: center;
+                                gap: 12px;
+
+
+
+                                .checkbox-block {
+                                    border: 1px solid #DBECF0;
+                                    width: 20px;
+                                    height: 20px;
+                                    border-radius: 4px;
+                                    cursor: pointer;
+                                    padding: 3px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: center;
+
+                                    .active {
+                                        display: block;
+                                    }
+
+                                }
+
+                                .checkbox-block.active {
+                                    background-color: #0C343D;
+
+                                }
+
+                            }
+
+                            .checkbox.checking {
+                                border-right: 1px solid #DBECF0;
+                                padding-right: 12px;
+                            }
+
+                            .checkbox.savings {
+                                margin-left: 12px;
+                            }
+
+                        }
+
+
+                    }
+
+                    .account-name {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #DBECF0;
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+                            display: flex;
+                            align-items: center;
+
+                            input {
+                                border: 1px solid #DBECF0;
+                                border-radius: 12px;
+                                padding: 14px 16px;
+                            }
+
+                            input:focus {
+
+                                outline: none;
+                            }
+
+                        }
+
+
+                    }
+
+                    .account-name.last {
+                        border: none;
+                        padding-bottom: 0px;
+                    }
+
+                    .select-country {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #DBECF0;
+
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #DBECF0;
+                            border-radius: 14px;
+                            position: relative;
+                            background-color: #DBE0E5;
+                            color: #ACBFC3;
+
+                            .input {
+                                width: 157px;
+                                padding-right: 12px;
+                                border-right: 1px solid #DBECF0;
+
+                            }
+
+                            .down-image-block {
+                                padding: 0px 12px;
+
+                                img {
+                                    opacity: 50%;
+                                }
+                            }
+
+                            p {
+                                padding: 16px;
+                            }
+
+                            .schedule-dropdown {
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                transform: translateY(100%);
+                                z-index: 2;
+                                background-color: rgb(243, 243, 243);
+                                display: none;
+                                border-radius: 14px;
+                                border: 1px solid #DBECF0;
+                                overflow: hidden;
+
+                                p {
+                                    width: 100%;
+                                    min-width: 148px;
+                                    padding: 12px 16px;
+                                    border-bottom: 1px solid #DBECF0;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: rgb(204, 204, 204);
+                                    }
+                                }
+                            }
+
+                            .schedule-dropdown.active {
+                                display: block;
+                            }
+
+                        }
+                    }
+
+                    .select-city {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #DBECF0;
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+
+                            display: flex;
+                            align-items: center;
+                            border: 1px solid #DBECF0;
+                            border-radius: 14px;
+                            position: relative;
+
+                            .input {
+                                width: 157px;
+                                padding-right: 12px;
+                                border-right: 1px solid #DBECF0;
+
+                            }
+
+                            .down-image-block {
+                                padding: 0px 12px;
+                                cursor: pointer;
+                            }
+
+                            p {
+                                padding: 16px;
+                            }
+
+                            .schedule-dropdown {
+                                position: absolute;
+                                right: 0;
+                                bottom: 0;
+                                transform: translateY(100%);
+                                z-index: 2;
+                                background-color: rgb(243, 243, 243);
+                                display: none;
+                                border-radius: 14px;
+                                border: 1px solid #DBECF0;
+                                overflow: hidden;
+
+                                p {
+                                    width: 100%;
+                                    min-width: 148px;
+                                    padding: 12px 16px;
+                                    border-bottom: 1px solid #DBECF0;
+                                    cursor: pointer;
+
+                                    &:hover {
+                                        background-color: rgb(204, 204, 204);
+                                    }
+                                }
+                            }
+
+                            .schedule-dropdown.active {
+                                display: block;
+                            }
+
+                        }
+                    }
+
+                    .street-address {
+                        text-align: start !important;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        font-size: 14px;
+                        padding-bottom: 20px;
+                        border-bottom: 1px solid #DBECF0;
+
+                        .discount-title {
+                            font-size: 14px;
+                        }
+
+                        .extra-info-text {
+                            color: #878E97;
+                            margin-top: 4px;
+                        }
+
+                        .input-block {
+                            display: flex;
+                            align-items: center;
+
+                            input {
+                                width: 200px;
+                                border: 1px solid #DBECF0;
+                                border-radius: 12px;
+                                padding: 14px 16px;
+                            }
+
+                            input:focus {
+
+                                outline: none;
+                            }
+
+                        }
+
+
+                    }
+
+                }
+            }
+        }
+
+
+
+        .save-block {
+            padding: 20px 0px;
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+
+            .go-back {
+                display: flex;
+                align-items: center;
+                gap: 6px;
+                cursor: pointer;
+            }
+
+            button {
+                padding: 12px 20px;
+                border-radius: 20px;
+                background: linear-gradient(266.66deg, #5CB170 -7.81%, #D6DE6D 118.14%);
+            }
+
+            .discard {
+                border: 1px solid #5CB170;
+                background: white;
+            }
+
+            .save {
+                color: white;
+                margin-left: 12px;
+            }
+        }
+
+
+    }
+}
+
+.succes-message {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    bottom: 42px;
+    font-size: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 12px 16px;
+    border-radius: 12px;
+    background: #5CB170;
+    color: white;
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+
+        span {
+            font-weight: 600;
+        }
+    }
+}

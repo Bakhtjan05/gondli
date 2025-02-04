@@ -1,0 +1,9 @@
+.selected-value,
+.select-option {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  :first-child {
+    margin-right: 10px;
+  }
+}

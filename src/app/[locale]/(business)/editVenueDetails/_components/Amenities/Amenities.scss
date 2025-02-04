@@ -1,0 +1,144 @@
+.amenities {
+  background-color: #fff;
+  padding: 24px 20px;
+  border-radius: 12px;
+  margin: 40px;
+  box-shadow: #dbecf0 0px 0px 10px 0px;
+
+  @media (max-width: 1024px) {
+    margin: 20px 16px 96px 16px !important;
+    
+  }
+
+  h2 {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 21.25px;
+    color: #000b19;
+    margin-bottom: 8px;
+  }
+  p {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 16.78px;
+    margin-bottom: 24px;
+    color: #878e97;
+  }
+  .amenities-grid {
+    // display: grid;
+    // grid-template-columns: repeat(5, 1fr);
+    // gap: 12px;
+    // justify-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .amenity-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    border: 1px solid #dbecf0;
+    border-radius: 16px;
+    padding: 14px 24px;
+    background: white;
+    height: 120px;
+    width: 250px;
+    transition: transform 0.3s ease;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+      
+    }
+
+    .amenity-icons {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+      .amenity-icon {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    .checkbox {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 20px;
+      height: 20px;
+      appearance: none;
+      border: 2px solid #124c59;
+      border-radius: 50%;
+      cursor: pointer;
+      outline: none;
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+      z-index: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .checkbox:checked::after {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 10px;
+      height: 10px;
+      background-image: url('/images/icons/check-2.svg');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    .amenity-label {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 19.18px;
+      color: #000b19;
+      margin: 0;
+      text-align: left;
+      width: 100%;
+      // padding-left: 10px;
+    }
+
+    /* Diagonal corner overlay using ::before */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 62px;
+      height: 62px;
+      background: #dbecf0;
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      transition: background 0.3s ease;
+      border-top-right-radius: 12px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    /* Styling checkbox background to match the corner */
+    .checkbox:checked {
+      background-color: white; /* Color to match the corner */
+      border-color: #00414e;
+    }
+
+    /* Change diagonal corner color when highlighted */
+    &.highlight {
+      border-color: #124c59;
+
+      &::before {
+        background: #0c343d; /* Darker color for checked state */
+      }
+    }
+  }
+}

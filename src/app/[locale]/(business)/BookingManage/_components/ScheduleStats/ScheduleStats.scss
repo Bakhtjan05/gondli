@@ -1,0 +1,145 @@
+aside {
+    padding-left: 20px;
+    border-left: 1px solid #DBECF0;
+    max-width: 260px;
+    width: 100%;
+
+    @media (max-width: 712px) {
+        max-width: none;
+    }
+
+    .bookings-breakdown {
+        padding-bottom: 24px;
+        border-bottom: 1px solid #DBECF0;
+
+        h2 {
+            font-weight: 600;
+            margin-top: 7px;
+        }
+
+        .booking-info {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-top: 24px;
+            font-size: 14px;
+
+            .booking-title {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                color: #878E97;
+
+            }
+
+            .numbers {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+            }
+        }
+    }
+
+    .popular-times {
+        padding: 24px 0px 34px 0px;
+        border-bottom: 1px solid #DBECF0;
+
+        h2 {
+            font-weight: 600;
+
+        }
+
+        .times-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            font-size: 14px;
+            margin-top: 24px;
+
+            .time-col {
+                display: flex;
+                gap: 16px;
+                color: #878E97;
+
+
+                .time-text {
+                    max-width: 36px;
+                    width: 100%;
+                }
+
+                .fill-container {
+                    width: 100%;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    .fill {
+                        height: 18px;
+                        flex: 1;
+                        background-color: #DBECF0;
+                        border-start-end-radius: 6px;
+                        border-end-end-radius: 6px;
+                        position: relative;
+
+                        &::before {
+                            content: "";
+                            width: 1px;
+                            height: 220%;
+                            position: absolute;
+                            background-color: #DBECF0;
+                            /* Set a color to make it visible */
+                            left: 0;
+                            top: -12px;
+                        }
+                    }
+
+                    .fill.max {
+                        background-color: #0C343D;
+                    }
+                }
+            }
+
+            .time-col.max {
+                color: #000B19;
+            }
+        }
+    }
+
+    .todays-customers {
+        padding: 24px 0px;
+
+        h2 {
+            font-weight: 600;
+
+        }
+
+        .customer {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-top: 24px;
+            font-size: 14px;
+
+            .customer-info {
+                .name {
+                    font-weight: 600;
+                }
+
+                .time-class {
+                    color: #878E97;
+                    margin-top: 4px;
+                    display: flex;
+                    align-items: center;
+                    gap: 8px;
+
+                    span {
+                        display: inline-block;
+                        width: 1px;
+                        height: 12px;
+                        background-color: #DBECF0;
+                    }
+                }
+            }
+        }
+    }
+}

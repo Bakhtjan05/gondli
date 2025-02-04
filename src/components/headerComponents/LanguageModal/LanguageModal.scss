@@ -1,0 +1,103 @@
+.modal-content {
+  background-color: rgb(245, 249, 255);
+  border-radius: 15px;
+  padding: 10px 10px 0;
+}
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 20px;
+  img {
+    width: 85px;
+  }
+}
+
+.language-title {
+  font-size: 28px;
+  color: rgba(0, 11, 25, 1);
+  margin-bottom: 10px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.language-description {
+  font-size: 16px;
+  color: rgba(0, 11, 25, 1);
+  margin-bottom: 20px;
+}
+
+.language-options {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 40px;
+}
+
+.language-option {
+  color: rgba(0, 11, 25, 1);
+  border-radius: 100px;
+  border: 1px solid rgba(219, 236, 240, 1);
+  padding: 14px 24px;
+  width: fit-content;
+}
+
+.language-option input {
+  position: absolute;
+  opacity: 0; /* Hide the default radio button */
+}
+
+.language-option.selected {
+  color: rgba(0, 11, 25, 1);
+  border-radius: 100px;
+  padding: 14px 24px;
+  width: fit-content;
+  position: relative;
+  background: #fff;
+  z-index: 0;
+  &::after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: '';
+    z-index: -1;
+    border-radius: 100px;
+    background: rgba(245, 249, 255, 1);
+  }
+  &::before {
+    position: absolute;
+    top: -2px;
+    bottom: -2px;
+    left: -2px;
+    right: -2px;
+    content: '';
+    z-index: -1;
+    border-radius: 100px;
+    background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+  }
+}
+
+.language-option:hover {
+  color: rgba(0, 11, 25, 1);
+}
+
+.change-language-button {
+  background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+  color: #ffffff;
+  border: none;
+  border-radius: 100px;
+  padding: 16px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 20px;
+}
+.btn-close {
+  font-size: 14px;
+  opacity: 1;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}

@@ -1,0 +1,221 @@
+.favorites-container {
+  margin: 0 auto 80px auto;
+  width: 844px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+
+  @media (max-width: 1024px) {
+    gap: 10px;
+    justify-content: flex-start;
+    margin-bottom: 0px;
+  }
+
+  .title {
+    color: #000b19;
+    font-size: 28px;
+    font-weight: 600;
+    line-height: 38px;
+  }
+
+  .filter-buttons {
+    display: flex;
+    gap: 10px;
+  }
+}
+
+.favorites-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 410px);
+  gap: 24px;
+
+  @media (max-width: 1024px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.favorite-card {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: none;
+
+  .image-container {
+    position: relative;
+    width: 410px;
+    height: 230px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+
+    }
+
+
+
+    .favorite-image {
+      border: 12px;
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover !important;
+    }
+
+    .icon {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+    }
+
+    .heat-wrapper {
+      position: absolute;
+      top: 12px;
+      left: 12px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background-color: #f5f9ff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+      overflow: hidden;
+      cursor: pointer;
+
+      &:hover {
+        width: 120px;
+        height: 36px;
+        border-radius: 20px;
+        background-color: #fff7f0;
+      }
+
+      &:hover::after {
+        content: 'Users Favorite';
+        font-size: 12px;
+        color: #124c59;
+        padding-left: 2px;
+        white-space: nowrap;
+        opacity: 1;
+        transition: opacity 0.3s ease;
+      }
+
+      .fire-icon {
+        position: relative;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .fire-icon {
+        transform: scale(1.1);
+      }
+    }
+
+    .like-bg {
+      position: absolute;
+      top: 12px;
+      right: 12px;
+      width: 32px;
+      height: 32px;
+      background-color: #c3c3c34d;
+      border-radius: 50%;
+    }
+
+    .like-icon {
+      top: 22px;
+      right: 20px;
+    }
+  }
+
+  .favorite-content {
+    margin-top: 16px;
+
+    .favorite-title {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 22px;
+      color: #000b19;
+      margin-bottom: 8px;
+    }
+
+    .favorite-category {
+      font-size: 14px;
+      color: #878e97;
+      line-height: 17px;
+      margin-bottom: 14px;
+
+      .separator {
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+
+    .favorite-details {
+      display: flex;
+      gap: 8px;
+      font-size: 14px;
+      color: #878e97;
+      line-height: 17px;
+
+      .favorite-rating {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        color: #f4b003;
+      }
+
+      .favorite-price {
+        color: #000b19;
+      }
+
+      .favorite-location {
+        color: #000b19;
+      }
+    }
+  }
+}
+
+// Button styling
+.btn-active {
+  padding: 12px 32px;
+  border: none;
+  outline: none;
+  position: relative;
+  border-radius: 24px;
+  z-index: 1;
+  background: linear-gradient(266.66deg, #5cb170, #d6de6d);
+  background-size: 200% 100%;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  color: black;
+  transition: background-position 0.4s;
+}
+
+.btn-active::before {
+  content: '';
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  top: 1px;
+  bottom: 1px;
+  border-radius: 24px;
+  background-color: #f5f9ff;
+  z-index: -1;
+  transition: 200ms;
+}
+
+.non-active-btn {
+  border: 1px solid #dbecf0;
+  padding: 12px 32px;
+  border-radius: 24px;
+}

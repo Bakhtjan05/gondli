@@ -1,0 +1,54 @@
+.form-eleven-box {
+    padding: 24px !important;
+
+    @media (max-width: 1024px) {
+        padding: 16px !important;
+
+    }
+
+}
+
+.last-image-bg {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.last-image-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('/images/searchInput/image.png');
+    background-size: cover;
+    background-position: center;
+    filter: blur(16px);
+    z-index: -1;
+}
+
+.grid-block {
+    border: 1px solid #4B7F8B !important;
+}
+
+.heart-icon-block {
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(115.37708282470703px);
+
+
+    &::before {
+      position: absolute;
+      z-index: -1;
+      content: "";
+      top: -2px;
+      bottom: -2px;
+      right: -2px;
+      left: -2px;
+      background: linear-gradient(156.52deg, rgba(255, 255, 255, 0.25) 2.12%, rgba(255, 255, 255, 0.02) 57.18%, rgba(255, 255, 255, 0.02) 65.84%, rgba(255, 255, 255, 0.1) 93.02%);
+      border-radius: 999px;
+    }
+  }
+
+

@@ -1,0 +1,124 @@
+.action-buttons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  .title {
+    font-size: 20px;
+    color: #000b19;
+    font-weight: 600;
+    line-height: 27px;
+  }
+
+  .button-group {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+
+    .filter-search-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+
+      .search-field {
+        width: 100px;
+        display: flex;
+        align-items: center;
+        position: relative;
+        border-radius: 6px;
+        overflow: hidden; 
+        border: 1px solid #E3E5E8;
+        
+
+        .search-input {
+          width: 100px;
+          height: 36px;
+          border-radius: 6px;
+
+          input {
+            width: 100%;
+            height: 100%;
+            padding-left: 30px;
+            padding-right: 5px;
+            text-align: left;
+            border: none;
+            outline: none;
+
+            &::placeholder {
+              color: #000b19;
+              font-size: 14px;
+              font-weight: 400;
+              line-height: 17px;
+              text-align: left;
+            }
+
+            &:focus {
+              color: #000; // Text color when focused
+              background-color: #fff; // Background color on focus
+            }
+          }
+        }
+
+        .search-btn {
+          position: absolute;
+          left: 8px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 20px;
+          height: 20px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          background: none;
+          border: none;
+          cursor: pointer;
+        }
+      }
+
+      .button-wrapper-1 {
+        padding: 10px 14px;
+        display: flex;
+        border: 1px solid #E3E5E8;
+        gap: 4px;
+        align-items: center;
+        border-radius: 6px;
+        background-color: #ffffff;
+
+        .button-text {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          color: #000b19;
+        }
+      }
+    }
+
+    .divider {
+      height: 18px;
+      border: 1px solid #dbecf0;
+    }
+
+    .add-service-wrapper {
+      .button-wrapper-2 {
+        padding: 10px 14px;
+        display: flex;
+        gap: 4px;
+        align-items: center;
+        border-radius: 6px;
+        background-color: #0c343d;
+
+        @media (max-width: 1024px) {
+          padding: 10px;
+        }
+
+        .button-text {
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 17px;
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}

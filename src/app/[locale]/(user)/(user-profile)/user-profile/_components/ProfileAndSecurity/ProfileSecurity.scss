@@ -1,0 +1,88 @@
+.profileSecurity {
+  margin: 0 auto 80px auto;
+  padding-left: 16px;
+
+  @media (max-width: 1024px) {
+    width: 100%;
+    margin-bottom: 24px;
+    padding-left: 0px;
+
+  }
+
+  .title {
+    margin-bottom: 40px;
+
+    h2 {
+      color: #000b19;
+      font-size: 28px;
+      font-weight: 600;
+      line-height: 38px;
+    }
+  }
+
+  .profileCard {
+    width: 844px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+
+    .profileItem {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 16px 0;
+      border-bottom: 1px solid #dbecf0;
+
+      .info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+
+        .label {
+          font-size: 14px;
+          font-weight: 400;
+          color: #878e97;
+          line-height: 17px;
+          margin-bottom: 4px;
+        }
+
+        .value {
+          font-size: 16px;
+          font-weight: 500;
+          color: #000b19;
+          line-height: 20px;
+        }
+      }
+
+      .actions {
+        .editButton {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          padding: 6px 12px;
+          font-size: 16px;
+          font-weight: 500;
+          color: #000b19;
+          background: none;
+          border: none;
+          cursor: pointer;
+          transition: color 0.3s ease;
+
+          &:hover {
+            color: #000;
+          }
+
+          .edit-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+          }
+        }
+      }
+    }
+  }
+}

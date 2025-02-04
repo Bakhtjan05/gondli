@@ -1,0 +1,249 @@
+// styles/Sidebar.scss
+
+.sidebar {
+  width: 250px;
+  height: 100vh;
+  background-color: #0C343D;
+  color: #A9E2EF;
+  display: block;
+  flex-direction: column;
+  position: sticky;
+  left: 0;
+  top: 0;
+  z-index: 20;
+
+  @media (max-width: 1024px) {
+    position: fixed;
+  }
+
+  
+
+  &__container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__header {
+    flex-shrink: 0;
+
+    .logo {
+      padding: 20px 24px;
+    }
+
+    hr {
+      border: 1px solid #124C59;
+      margin: 0;
+      width: 100%;
+    }
+  }
+
+  &__scrollable {
+    flex: 1;
+    overflow-y: auto;
+    padding-top: 38px;
+    padding: 38px 12px 12px;
+
+    @media (max-width: 1024px) {
+      padding: 24px 12px 12px;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: #0C343D;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #124C59;
+      border-radius: 3px;
+    }
+  }
+
+  &__nav {
+    margin-bottom: 40px;
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      @media (max-width: 1024px) {
+        gap: 8px;
+      }
+
+      li {
+        position: relative;
+        z-index: 2;
+
+      }
+    }
+  }
+
+  &__nav-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+
+
+    &:hover {
+      background-color: #124C59;
+    }
+
+    &--active {
+      background-color: #3A626B;
+      color: white;
+
+      &::after {
+
+        border-radius: 14px;
+        content: '';
+        position: absolute;
+        top: -2px;
+        bottom: -2px;
+        left: -2px;
+        right: -2px;
+        z-index: -1;
+        background: linear-gradient(156.52deg, rgba(255, 255, 255, 0.25) 2.12%, rgba(255, 255, 255, 0.02) 57.18%, rgba(255, 255, 255, 0.02) 65.84%, rgba(255, 255, 255, 0.1) 93.02%);
+
+
+      }
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__sales {
+    margin-bottom: 32px;
+
+    h4 {
+      text-transform: uppercase;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 16px;
+      margin-bottom: 16px;
+      padding: 0 12px;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+
+
+    }
+  }
+
+  &__channel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    border-radius: 14px;
+    background-color: #3A626B;
+    font-size: 14px;
+    line-height: 17px;
+    color: white;
+
+    &-link {
+      position: relative;
+      z-index: 2;
+    }
+
+
+
+    &::after {
+
+      border-radius: 14px;
+      content: '';
+      position: absolute;
+      top: -2px;
+      bottom: -2px;
+      left: -2px;
+      right: -2px;
+      z-index: -1;
+      background: linear-gradient(156.52deg, rgba(255, 255, 255, 0.25) 2.12%, rgba(255, 255, 255, 0.02) 57.18%, rgba(255, 255, 255, 0.02) 65.84%, rgba(255, 255, 255, 0.1) 93.02%);
+
+
+    }
+
+    &-info {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex: 1;
+    }
+
+    &-edit {
+      margin-left: auto;
+    }
+  }
+
+  &__add-channel {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    font-size: 14px;
+    line-height: 17px;
+    cursor: pointer;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__footer {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media (max-width: 1024px) {
+      gap: 8px;
+    }
+  }
+
+  &__footer-item {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 17px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #124C59;
+    }
+
+    &--active {
+      background-color: rgba(195, 195, 195, 0.3);
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

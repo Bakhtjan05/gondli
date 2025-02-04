@@ -1,0 +1,15 @@
+.main {
+    display: flex;
+    padding: 28px 24px 0px 40px;
+    background-color: #F5F9FF;
+
+    @media (max-width: 1024px) {
+        padding: 28px 12px 0px 12px;
+    }
+
+    @media (max-width: 712px) {
+        flex-direction: column;
+    }
+
+    
+}

@@ -1,0 +1,295 @@
+.subscription-checkout-page {
+  padding: 120px 100px 80px;
+  color: #000b19;
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    .title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 37.19px;
+      text-align: left;
+    }
+  }
+
+  .column {
+    padding: 0;
+  }
+
+  .user-details {
+    padding-right: 60px;
+
+    .pro-subscription-detail {
+      margin-bottom: 24px;
+      border-radius: 16px;
+      border: 1px solid #dbecf0;
+      display: flex;
+      justify-content: flex-start;
+      overflow: hidden;
+      .logo-container {
+        border-radius: 16px;
+        &:nth-child(1) {
+          border-radius: inherit;
+        }
+      }
+
+      .plan-details {
+        flex-grow: 1;
+        display: flex;
+        padding: 24px 20px;
+        align-items: center;
+        .extra-info {
+          flex-grow: 1;
+          .main-text {
+            font-family: 'Gilroy-Regular';
+            font-size: 16px;
+            margin-bottom: 10px;
+          }
+          .additional-text {
+            font-size: 14px;
+            color: #878e97;
+          }
+        }
+      }
+    }
+
+    .divider {
+      height: 1px;
+      background-color: #dbecf0;
+    }
+
+    .subscription-section {
+      padding: 24px 0;
+      .subscription-title {
+        font-family: 'Gilroy-Regular';
+        font-size: 16px;
+        font-weight: 500;
+        text-align: left;
+        margin-bottom: 24px;
+      }
+
+      .plan-selection {
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+        padding: 20px 24px;
+        border: 1px solid #dbecf0;
+        border-radius: 16px;
+        &:first-of-type {
+          margin-bottom: 10px;
+        }
+        .circle,
+        .check {
+          position: absolute;
+          top: 6px;
+          right: 7px;
+          z-index: 100;
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 40px;
+          height: 40px;
+          background: #e0e7eb;
+          clip-path: polygon(100% 0, 0 0, 100% 100%);
+        }
+        &::before {
+          content: '';
+          position: absolute;
+          top: 4px;
+          right: 4px;
+          color: #354a52;
+          font-size: 14px;
+          z-index: 10;
+        }
+
+        &.active {
+          border-color: #0c343d;
+
+          &::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40px;
+            height: 40px;
+            background: #4d6e78;
+            clip-path: polygon(100% 0, 0 0, 100% 100%);
+          }
+
+          &::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            right: 8px;
+            color: white;
+            font-size: 14px;
+          }
+        }
+        .plan-type {
+          font-family: 'Gilroy-Regular';
+          font-size: 16px;
+          font-weight: 500;
+          margin-bottom: 8px;
+        }
+        .plan-description {
+          font-size: 14px;
+          font-weight: 400;
+          color: #878e97;
+        }
+      }
+
+      .dropdown {
+        background-color: #ffffff;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 12px;
+        display: block;
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid #dbecf0;
+
+        .dropdown__value-container {
+          display: flex;
+          cursor: inherit;
+        }
+      }
+
+      .subscription-input-group {
+        background-color: #dbecf0;
+        margin-top: 16px;
+        overflow: hidden;
+        border-radius: 12px;
+        border: 1px solid #dbecf0;
+        .subscription-input {
+          color: #878e97;
+          padding: 16px;
+          border-right: none;
+          &::placeholder {
+            color: #878e97;
+          }
+        }
+        .apply-promo-button {
+          background-color: #ffffff;
+          border: 1px solid #dbecf0;
+          border-left: none;
+          color: #c3c6cb;
+          &:hover {
+            color: #c3c6cb;
+          }
+        }
+      }
+    }
+    .payment-information {
+      .payment-dropdown {
+        color: #878e97;
+        margin-bottom: 24px;
+      }
+
+      .card-backside-info {
+        display: flex;
+        justify-content: space-between;
+        gap: 12px;
+      }
+      .subscription-input {
+        color: #878e97;
+        padding: 16px;
+        border-right: none;
+        margin-bottom: 24px;
+        &::placeholder {
+          color: #878e97;
+        }
+      }
+    }
+
+    .save-card-info {
+      display: flex;
+      align-items: center;
+      margin-bottom: 24px;
+      .save-card-checkbox {
+        height: 20px;
+        width: 20px;
+        margin-right: 12px;
+        &:checked {
+          accent-color: #0c343d;
+        }
+      }
+      .save-card-label {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    }
+
+    .cancelation-policy-section {
+      margin-top: 24px;
+      span {
+        font-weight: normal;
+        &.bold {
+          font-family: 'Gilroy-Regular';
+          font-weight: 500;
+        }
+      }
+    }
+  }
+
+  .payment-details {
+    border: 1px solid #dbecf0;
+    border-radius: 16px;
+    padding: 24px;
+
+    .payment-title {
+      font-size: 16px;
+      margin-bottom: 40px;
+      font-family: 'Gilroy-Regular';
+    }
+    .payment-table {
+      border: 1px solid #dbecf0;
+      border-radius: 16px;
+      margin-bottom: 40px;
+      .payment-row {
+        display: flex;
+        padding: 16px 20px;
+        justify-content: space-between;
+        border-bottom: 1px solid #dbecf0;
+        &:last-of-type {
+          border-bottom: none;
+        }
+        .payment-detail {
+          text-align: left;
+          font-size: 14px;
+        }
+        .payment-price {
+          text-align: right;
+          font-size: 14px;
+        }
+        &.yearly {
+          .payment-price {
+            color: #abcf6f;
+          }
+        }
+        &.total {
+          font-family: 'Gilroy-Regular';
+
+          .payment-price,
+          .payment-detail {
+            font-size: 16px;
+            font-weight: 500;
+          }
+        }
+      }
+    }
+    .confirm-button {
+      background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+      width: 100%;
+      border-radius: 100px;
+      border: none;
+      padding: 16.5px 0;
+    }
+  }
+}

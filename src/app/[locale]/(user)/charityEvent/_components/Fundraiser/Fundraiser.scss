@@ -1,0 +1,74 @@
+.fundraiser {
+  padding: 20px;
+  border-radius: 16px;
+  border: 1px solid rgba(219, 236, 240, 1);
+
+  @media screen and (max-width: 992px) {
+    padding: 40px;
+    margin-top: 40px;
+  }
+
+  @media screen and (max-width: 767px) {
+    padding: 15px;
+  }
+  .donate {
+    border: 1px solid rgba(219, 236, 240, 1);
+    border-radius: 16px;
+    padding: 15px;
+    input {
+      font-size: 28px;
+      border: 0;
+      padding-bottom: 15px;
+      font-weight: bold;
+      background: transparent;
+      outline: none;
+      color: rgba(0, 11, 25, 1);
+      &::placeholder {
+        color: rgba(135, 142, 151, 1);
+      }
+    }
+    p {
+      font-size: 16px;
+      color: rgba(0, 11, 25, 1);
+      margin-bottom: 5px;
+    }
+    span {
+      font-size: 14px;
+      color: rgba(135, 142, 151, 1);
+    }
+    .line {
+      border: 1px solid rgba(219, 236, 240, 1);
+      margin: 20px 0;
+    }
+  }
+
+  button {
+    background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+    color: #ffffff;
+    border: none;
+    border-radius: 100px;
+    padding: 16px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    width: 100%;
+    margin: 40px 0 0 0;
+    position: relative;
+    &::after {
+      position: absolute;
+      top: -1.5px;
+      bottom: -1.3px;
+      left: -1.5px;
+      right: -1.3px;
+      content: '';
+      z-index: -1;
+      color: #fff;
+      background: linear-gradient(266.66deg, #5cb170 -7.81%, #d6de6d 118.14%);
+      border-radius: 100px;
+    }
+    &:hover {
+      background: rgb(245, 249, 255);
+      color: rgba(0, 11, 25, 1);
+    }
+  }
+}
