@@ -7,11 +7,9 @@ interface Params {
 }
 
 export default function CharityEvent({ params }: Params) {
-  const { id } = params;
-
   return (
     <main>
-      <CenterDetails serviceId={id} /> {/* Передаем ID в CenterDetails */}
+      <CenterDetails serviceId={params.id} />
     </main>
   );
 }
