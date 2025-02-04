@@ -4,7 +4,8 @@ import React from 'react';
 import './Notification.scss';
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useUpcomingPage } from '../../UpcomingPageContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 export default function NotificationSettings() {
   const notificationSettings = [
@@ -45,12 +46,12 @@ export default function NotificationSettings() {
     },
   ];
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
+  const dispatch = useDispatch();
 
   const t = useTranslations();
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   return (

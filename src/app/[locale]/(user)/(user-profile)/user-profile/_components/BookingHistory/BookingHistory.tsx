@@ -12,10 +12,12 @@ import {
   UserLogo,
   X,
 } from '@/icons';
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import { useEffect, useState } from 'react';
 import axios from '@/lib/axios';
 import { useAuth } from '@/types/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
+
 
 export default function BookingHistory() {
   interface BookingData {
@@ -30,10 +32,11 @@ export default function BookingHistory() {
   }
 
   const { token } = useAuth();
+  const dispatch = useDispatch();
+
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
 
 
   const bookingData: BookingData[] = [
@@ -95,7 +98,7 @@ export default function BookingHistory() {
   ];
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   useEffect(() => {
@@ -103,7 +106,7 @@ export default function BookingHistory() {
       try {
         const response = await axios.get('/api/profile/history', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setData(response.data?.data?.upcoming || []); // Сохраняем данные в состоянии

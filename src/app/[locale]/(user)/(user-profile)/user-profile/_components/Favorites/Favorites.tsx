@@ -3,9 +3,10 @@ import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import './Favorites.scss';
 import { useTranslations } from 'next-intl';
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import { useAuth } from '@/types/auth';
 import axios from '@/lib/axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 type FavoriteItem = {
   id: number;
@@ -21,13 +22,14 @@ type FavoriteItem = {
 const Favorite = () => {
   const [filter, setFilter] = useState('All');
   const t = useTranslations();
+  const dispatch = useDispatch();
+
 
   const { token } = useAuth();
   const [dataVenues, setDataVenues] = useState(null);
   const [dataDigital, setDataDigital] = useState(null);
   const [error, setError] = useState(null);
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
 
 
   const favorites: FavoriteItem[] = [
@@ -94,7 +96,7 @@ const Favorite = () => {
   ];
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   useEffect(() => {
@@ -102,7 +104,7 @@ const Favorite = () => {
       try {
         const response = await axios.get('/api/favorites', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setDataVenues(response.data.venues || []); // Сохраняем данные в состоянии
@@ -119,7 +121,7 @@ const Favorite = () => {
       try {
         const response = await axios.get('/api/favorites', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setDataDigital(response.data.digital_contents || []); // Сохраняем данные в состоянии

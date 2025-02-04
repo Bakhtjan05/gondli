@@ -13,13 +13,14 @@ import {
 } from "@stripe/react-stripe-js";
 import { useTranslations } from 'next-intl';
 import Image from 'next/image';
-import { useUpcomingPage } from '../../UpcomingPageContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
 
 export default function PaymentMethod() {
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
   const [openForm, setOpenForm] = useState(false)
   const [loading, setLoading] = useState(false);
 
+  const dispatch = useDispatch();
   const t = useTranslations();
 
   const paymentData = [
@@ -44,7 +45,7 @@ export default function PaymentMethod() {
   ]
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
   const toggleForm = () => {
     setOpenForm(true)

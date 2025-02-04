@@ -4,16 +4,20 @@
 import React, { useEffect, useState } from 'react';
 import './GivenReview.scss';
 import Image from 'next/image';
-import { useUpcomingPage } from '../../UpcomingPageContext';
 import { useAuth } from '@/types/auth';
 import axios from '@/lib/axios';
+import { useDispatch, useSelector } from 'react-redux';
+import { setIsUpcomingPage, selectUpcomingPageState } from '@/slices/upcomingPageSlice';
+
+
 export default function Reviews() {
+
+  const dispatch = useDispatch();
 
   const { token } = useAuth();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
-  const { isUpcomingPage, setIsUpcoming } = useUpcomingPage();
 
   const reviews = [
     {
@@ -55,7 +59,7 @@ export default function Reviews() {
   ];
 
   const backToNavbar = () => {
-    setIsUpcoming(false)
+    dispatch(setIsUpcomingPage(false))
   }
 
   useEffect(() => {
@@ -63,7 +67,7 @@ export default function Reviews() {
       try {
         const response = await axios.get('/api/profile/reviews', {
           headers: {
-            Authorization: `Bearer ${token.token}`,
+            Authorization: `Bearer ${token}`,
           },
         });
         setData(response.data?.data || []); // Сохраняем данные в состоянии
@@ -76,9 +80,9 @@ export default function Reviews() {
   }, []); // [] означает, что запрос будет выполнен только один раз при монтировании компонента
 
   console.log(data);
-  
 
-console.log(data)
+
+  console.log(data)
 
   return (
     <div className='container-block'>
