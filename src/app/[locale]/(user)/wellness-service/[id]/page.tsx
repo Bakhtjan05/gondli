@@ -6,7 +6,7 @@ import CenterDetails from "../_components/CenterDetails/CenterDetails";
 
 
 export default function CharityEvent() {
-  const params = useParams(); // Получаем параметры из URL
+  const params = useParams(); 
   const id = params?.id as string;
 
   return (
