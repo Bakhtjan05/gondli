@@ -17,7 +17,7 @@ export default function HomeSection() {
       <MainHero />
       <MissedStories />
       <PastBooking />
-      <ExploreDeals />
+      {/* <ExploreDeals /> */}
       <LocationServices />
       <DigitalContent />
       <Recommended />
