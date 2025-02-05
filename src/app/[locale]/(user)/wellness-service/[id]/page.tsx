@@ -1,3 +1,4 @@
+"use client"
 
 import { useParams } from "next/navigation";
 import CenterDetails from "../_components/CenterDetails/CenterDetails";
