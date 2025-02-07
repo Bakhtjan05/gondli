@@ -78,16 +78,16 @@ const upcomingPageSlice = createSlice({
             state.isAuthenticated = action.payload;
         },
         setFullName: (state, action: PayloadAction<string>) => {
-            state.userName = action.payload;
+            state.fullName = action.payload;
         },
         setEmail: (state, action: PayloadAction<string>) => {
-            state.userName = action.payload;
+            state.email = action.payload;
         },
         setPhoneNumber: (state, action: PayloadAction<string>) => {
-            state.userName = action.payload;
+            state.phoneNumber = action.payload;
         },
         setAdditionalComment: (state, action: PayloadAction<string>) => {
-            state.userName = action.payload;
+            state.additionalComment = action.payload;
         },
     },
 });

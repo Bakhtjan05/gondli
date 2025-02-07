@@ -71,7 +71,7 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({ cardNumber, expirationD
             // Создаем Stripe токен на основе введенных данных
 
             // Отправляем данные на сервер
-            const response = await axios.post('http://127.0.0.1:8000/api/confirm-pay',
+            const response = await axios.post('/api/confirm-pay',
                 {
                     service_id: 1, // Здесь подставьте нужный ID услуги
                     date: "2025-02-01",
