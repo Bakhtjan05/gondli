@@ -10,7 +10,7 @@ import { selectUpcomingPageState, setSelectedServicePrice } from '@/slices/upcom
 import axios from '@/lib/axios';
 import { useAuth } from '@/types/auth';
 
-const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY!);
+const stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY);
 
 interface PaymentDetailsProps {
     cardNumber: string;
