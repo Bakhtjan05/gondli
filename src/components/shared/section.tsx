@@ -46,7 +46,7 @@ export function SectionWrapper({
   return (
     <div
       {...props}
-      className={cn('relative h-screen w-full ', bgClasses)}
+      className={cn('relative  w-full ', bgClasses)}
     >
       <SectionMountains
         show={displayMountains}
