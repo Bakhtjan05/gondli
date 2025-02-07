@@ -78,7 +78,7 @@ const Recommended: React.FC = () => {
         <div className='row'>
           {serviceData.map((item, index) => (
             <div key={index} className='col-lg-3 col-md-4 md-mb-5 mb-4 px-2'>
-              <Link href={`/${locale}/wellness-service/${(index + 1).toString()}`} passHref>
+              <Link href={`/${locale}/wellness-service/${(index + 1)}`} passHref>
                 <div className='image-wrapper'>
                   <div className='banner'>
                     <Image
