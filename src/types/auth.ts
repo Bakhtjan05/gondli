@@ -85,7 +85,7 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
 
     try {
       await csrf();
-      const { data } = await axios.post('/login', props);
+      const { data } = await axios.post('/api/login', props);
 
       // ✅ Сохраняем токен в cookies
       Cookies.set('authToken', data.token, { expires: 1, path: '/' });
