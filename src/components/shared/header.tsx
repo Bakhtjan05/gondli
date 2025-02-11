@@ -30,7 +30,7 @@ export default function Header() {
     <header className='fixed top-0 z-30 h-[80px] w-full bg-surface-brand max-lg:!h-auto'>
       <div className='container'>
         <div className='flex h-16.75 items-center justify-between gap-2 sm:h-18.5'>
-          <div className='logoWrap w-full'>
+          <a href='' className='logoWrap w-full'>
             <Image
               src={'/images/logo/index.svg'}
               alt='logo'
@@ -39,7 +39,7 @@ export default function Header() {
               height={22}
               className='h-4.5 w-auto sm:h-auto'
             />
-          </div>
+          </a>
 
           <nav className='hidden lg:block'>
             {isRegistration ? (

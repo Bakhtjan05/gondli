@@ -73,7 +73,7 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({ cardNumber, expirationD
             // Отправляем данные на сервер
             const response = await axios.post('/api/confirm-pay',
                 {
-                    service_id: 1, // Здесь подставьте нужный ID услуги
+                    service_id: 2, // Здесь подставьте нужный ID услуги
                     date: "2025-02-01",
                     time: "12:00",
                     practitioner_id: null,
