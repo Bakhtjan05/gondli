@@ -89,6 +89,7 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
 
       // ✅ Сохраняем токен в cookies
       Cookies.set('authToken', data.token, { expires: 1, path: '/' });
+      
 
       setToken(data.token);
       dispatch(setIsAuthenticated(true));
@@ -108,11 +109,8 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
       await csrf();
 
       // ✅ Передаём токен при выходе
-      await axios.post(
-        '/logout',
-        {},
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
+      await axios.post('/logout', {}, { withCredentials: true });
+
 
       // ✅ Удаляем токен из cookies
       Cookies.remove('authToken');
