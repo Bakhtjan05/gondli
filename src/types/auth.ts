@@ -48,7 +48,8 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
 
   // CSRF
   const csrf = async (): Promise<void> => {
-    await axios.get('/sanctum/csrf-cookie');
+    await axios.get('/sanctum/csrf-cookie', { withCredentials: true });
+
   };
 
   // Register
@@ -104,28 +105,12 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
 
   // Logout
   const logout = async (): Promise<void> => {
-    setIsLoading(true);
-    try {
-      await csrf();
-
-      // ✅ Передаём токен при выходе
-      await axios.post('/logout', {}, { withCredentials: true });
-
-
-      // ✅ Удаляем токен из cookies
-      Cookies.remove('authToken');
-
-      setToken(null);
-      dispatch(setIsAuthenticated(false));
-
-      // Перенаправляем на главную страницу с локалью
-      router.push(`/${locale}`);
-    } catch (error) {
-      console.error('Ошибка при выходе:', error);
-    } finally {
-      setIsLoading(false);
-    }
+    Cookies.remove('authToken'); // Удаляем authToken
+    setToken(null);
+    dispatch(setIsAuthenticated(false));
+    router.push(`/${locale}`);
   };
+  
 
   return {
     csrf,
