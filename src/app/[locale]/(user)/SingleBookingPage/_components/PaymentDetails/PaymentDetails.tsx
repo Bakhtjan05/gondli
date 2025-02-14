@@ -58,37 +58,31 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({ cardNumber, expirationD
     // };
 
     const handlePayment = async () => {
-        const stripe = await stripePromise;
-        if (!stripe) {
-            console.error("Stripe failed to load.");
-            return;
-        }
-
         setIsProcessing(true);
         setLoading(true);
-
+    
         try {
-            // Создаем Stripe токен на основе введенных данных
-
-            // Отправляем данные на сервер
             const response = await axios.post('/api/confirm-pay',
                 {
-                    service_id: 2, // Здесь подставьте нужный ID услуги
+                    service_id: 2,
                     date: "2025-02-01",
                     time: "12:00",
                     practitioner_id: null,
                     discount_code: null,
                     payment_option: "full",
                     additional_email: null,
-                    stripeToken: "tok_visa"
+                    card_number: cardNumber,
+                    exp_month: parseInt(expirationDate.split('/')[0]),
+                    exp_year: parseInt("20" + expirationDate.split('/')[1]),
+                    cvc: cvc
                 },
                 {
                     headers: {
-                        Authorization: `Bearer ${token}`, // Добавляем токен авторизации в заголовок
+                        Authorization: `Bearer ${token}`,
                     },
                 }
             );
-
+    
             setIsProcessingSuccessful(true);
         } catch (err) {
             console.error("Payment Error:", err);
@@ -97,6 +91,7 @@ const PaymentDetails: React.FC<PaymentDetailsProps> = ({ cardNumber, expirationD
             setLoading(false);
         }
     };
+    
 
 
 
