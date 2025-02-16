@@ -97,7 +97,7 @@ const PastBooking: React.FC = () => {
     <div className='pastBooking'>
       <div className='container'>
         <div className='title'>
-          <h2>{t('past-booking')}</h2>
+          <h2>New and Noteworthy</h2>
         </div>
 
         {isLoading ? (

@@ -54,7 +54,7 @@ export function SectionWrapper({
       />
       <div
         className={cn(
-          'relative px-3.5 pb-15 pt-30 sm:pb-20 sm:pt-30 lg:px-25',
+          'relative px-4 pb-0 pt-30 sm:pb-20 sm:pt-30 lg:px-0 z-10',
           className,
         )}
       >

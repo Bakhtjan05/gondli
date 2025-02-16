@@ -13,7 +13,7 @@ const buttonVariants = cva(
         default:
           'bg-button-default text-white disabled:bg-button-disabled disabled:bg-none disabled:text-text-disabled',
         outline:
-          'border-1.5 border-transparent bg-surface-primary bg-clip-padding after:absolute after:-inset-px.5 after:-z-10 after:rounded-full after:bg-button-default',
+          'border-1.5 border-transparent  bg-clip-padding after:absolute after:-inset-px.5 after:-z-10 after:rounded-full ',
         pagination:
           'rounded-md border border-border-primary bg-surface-primary',
       },

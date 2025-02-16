@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './ForBusiness.scss';
 import Image from 'next/image';
 import { useTranslations } from 'next-intl';
+import { Button } from '@/components/ui/button';
 const ForBusiness: React.FC = () => {
     const t = useTranslations();
 
@@ -29,38 +30,45 @@ const ForBusiness: React.FC = () => {
     return (
         <React.Fragment>
             <div
-                className='locationServices bg-[#0C343D] relative text-white'
+                className='for-business  bg-[#0C343D] relative text-white max-lg:!pt-[60px]'
                 style={{
 
                     minHeight: '350px',
-                    padding: '120px 90px 0px',
+                    padding: '120px 0px 0px',
                 }}
             >
                 <div className='absolute right-0 bottom-0 z-0'>
                     <Image src={"/images/home/gondli-mountains.png"} alt='' width={400} height={400} />
                 </div>
-                <div className='relative z-10 flex flex-col items-center text-center overflow-hidden'>
-                    <h1 className='text-[40px] font-semibold flex items-center gap-3'>
-                        <Image src={"/images/home/logo.png"} alt='' width={149} height={33} />
+                <div className='lg:container lg:mx-auto max-lg:pl-3 relative z-10 flex flex-col items-center text-center '>
+                    <h1 className='text-[40px] font-semibold flex items-center gap-3 max-lg:!gap-0 max-lg:text-[26px]'>
+                        <Image src={"/images/logo/index.svg"} alt='' width={149} height={33} className='max-lg:h-[28px] max-lg:pb-1'/>
                         For Business
                     </h1>
-                    <p className='mt-4 text-xl '>Supercharge your business for free with the world's top booking platform for salons <br /> and spas. Independently voted no. 1 by industry professionals.</p>
-                    <div className="flex justify-around mb-6 mt-10 border-[1px] border-[#3E5E65] rounded-xl">
-                        {buttons.map((text, index) => (
-                            <button
-                                key={index}
-                                className={`p-3 rounded-xl text-white border-2 border-transparent transition-all ${activeIndex === index ? 'bg-[#3E656D] border-2 border-[#65848C]' : ''}`}
-                                onClick={() => handleClick(index)}
-                            >
-                                {text}
-                            </button>
-                        ))}
-                    </div>
-                    <div className='w-full h-[600px] relative'>
-                        <div className=' border-[#4A676E] border-[6px] rounded-t-3xl overflow-hidden'>
-                            <Image src={images[activeIndex]} alt='' width={4200} height={1200} />
+                    <p className='mt-4 text-xl max-lg:text-base'>Supercharge your business for free with the world's top booking platform for salons <br /> and spas. Independently voted no. 1 by industry professionals.</p>
+                    <div className='max-lg:overflow-x-auto max-lg:w-full'>
+                        <div className="max-lg:w-fit inline-flex justify-around mb-6 mt-10 border-[1px] border-[#3E5E65] rounded-xl">
+                            {buttons.map((text, index) => (
+                                <button
+                                    key={index}
+                                    className={`p-3 max-lg:text-nowrap rounded-xl text-white border-2 border-transparent transition-all max-lg:text-sm ${activeIndex === index ? 'bg-[#3E656D] border-2 border-[#65848C]' : ''}`}
+                                    onClick={() => handleClick(index)}
+                                >
+                                    {text}
+                                </button>
+                            ))}
                         </div>
-                        <div className='w-full absolute bottom-0 h-[138px] gradient '></div>
+                        <div className=' w-full max-lg:w-[573px] h-[600px] max-lg:h-auto relative overflow-hidden'>
+                            <div className=' border-[#4A676E] border-[6px] rounded-t-3xl max-lg:rounded-3xl overflow-hidden max-lg:h-[408px]'>
+                                <Image src={images[activeIndex]} alt='' width={4200} height={1200} />
+                            </div>
+                            <div className='w-full absolute bottom-0 h-[138px] gradient max-lg:hidden'></div>
+                        </div>
+                    </div>
+                    <div className='mt-10 mb-15 flex gap-3 justify-center'>
+                        <Button className='max-lg:text-sm'>Sign up as Business</Button>
+                        <Button variant='outline' className='transparent-btn max-lg:text-sm border-2 border-[#ACCE6E]'>Ask for Free Demo</Button>
+
                     </div>
                 </div>
 

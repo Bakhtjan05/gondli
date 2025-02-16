@@ -5,6 +5,8 @@ import PastBooking from './_components/sections/PastBooking/PastBooking';
 import Recommended from './_components/sections/Recommended/Recommended';
 import WaitlistSection from './_components/sections/waitlist';
 import ForBusiness from './_components/sections/ForBusiness/ForBusiness';
+import Insights from './_components/sections/Insights/Insights';
+import TestimonialsSection from './_components/sections/testimonials';
 
 
 export default function HomeSection() {
@@ -17,7 +19,8 @@ export default function HomeSection() {
       <Recommended />
       <PastBooking />
       <ForBusiness />
-      <LocationServices />
+      <Insights/>
+      <TestimonialsSection/>
       <WaitlistSection />
       
     </main>
