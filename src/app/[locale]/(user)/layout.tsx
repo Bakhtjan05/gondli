@@ -31,38 +31,39 @@ export const viewport: Viewport = {
 
 export default async function RootLayout({
   children,
-  params: { locale },
+  params,
 }: Readonly<{
   children: React.ReactNode;
-  params: { locale: string };
+  params: Promise<{ locale: string }>;
 }>) {
-
-
+  const { locale } = await params;
 
   const messages = await getMessages();
 
   return (
     <html lang={locale} className='scroll-smooth'>
-      <Head>
+      <head>
         <link
           rel='icon'
           href='https://blobgondlis.blob.core.windows.net/favicon/favicon.ico'
         />
-      </Head>
-      <Script
-        id='gtm-script'
-        strategy='afterInteractive'
-        dangerouslySetInnerHTML={{
-          __html: `
+      </head>
+
+      <body className={cn('bg-surface-primary leading-snug sm:leading-none')}>
+        <Script
+          id='gtm-script'
+          strategy='afterInteractive'
+          dangerouslySetInnerHTML={{
+            __html: `
               (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
               new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
               j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
               'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
               })(window,document,'script','dataLayer','GTM-PLM7GFXG');
             `,
-        }}
-      />
-      <body className={cn('bg-surface-primary leading-snug sm:leading-none')}>
+          }}
+        />
+
         <noscript>
           <iframe
             src='https://www.googletagmanager.com/ns.html?id=GTM-PLM7GFXG'
@@ -71,13 +72,14 @@ export default async function RootLayout({
             className='invisible hidden'
           ></iframe>
         </noscript>
+
         <NextIntlClientProvider messages={messages}>
           {isComingSoon ? (
             <ComingSoon />
           ) : (
             <ReduxProvider>
               <HeaderSelector />
-              <div className=''>{children}</div>
+              <div>{children}</div>
               <Footer />
             </ReduxProvider>
           )}
