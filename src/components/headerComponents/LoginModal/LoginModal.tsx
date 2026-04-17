@@ -158,24 +158,27 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, onClose }) => {
                 </Form.Control.Feedback>
               )}
             </FloatingLabel>
-            <FloatingLabel
-              className='mb-2'
-              controlId='floatingPassword'
-              label={t('password')}
-            >
-              <Form.Control
-                type={passwordVisible ? 'text' : 'password'}
-                placeholder={t('password')}
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
+            <div className="password-wrapper">
+              <FloatingLabel
+                className='mb-2'
+                controlId='floatingPassword'
+                label={t('password')}
+              >
+                <Form.Control
+                  type={passwordVisible ? 'text' : 'password'}
+                  placeholder={t('password')}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </FloatingLabel>
+
               <div
                 className='show-hide-password'
                 onClick={togglePasswordVisibility}
               >
                 {passwordVisible ? t('hide') : t('show')}
               </div>
-            </FloatingLabel>
+            </div>
             <div className='forgotPassword'>
               <span>{t('forgot-password')}</span>
             </div>
@@ -193,28 +196,7 @@ const LoginModal: React.FC<LoginModalProps> = ({ show, onClose }) => {
               <span>{t('or')}</span>
             </p>
           </div>
-          <div className='socialLogin'>
-            <button>
-              <Image
-                priority
-                src='/images/notifications/facebook.svg'
-                width={20}
-                height={20}
-                alt='facebook'
-              />
-              <p>{t('continue-with-facebook')}</p>
-            </button>
-            <button>
-              <Image
-                priority
-                src='/images/notifications/google.svg'
-                width={20}
-                height={20}
-                alt='google'
-              />
-              <p>{t('continue-with-google')}</p>
-            </button>
-          </div>
+          
           <div className='alreadyAccount'>
             <p>
               {t('no-account-yet')}{' '}

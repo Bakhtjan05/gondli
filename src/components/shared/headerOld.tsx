@@ -103,17 +103,10 @@ export default function Header() {
           </SheetContent>
         </Sheet>
       </div>
-      {/* {!token && (
-        <> */}
+      
       <SignupModal show={signupModal} onClose={closeSignupModal} />
       <LoginModal show={loginModal} onClose={closeLoginModal} />
-      {/* </>
-      )}
-      {token && (
-        <>
-          <p>jahjhbvhjvb</p>
-        </>
-      )} */}
+      
     </header>
   );
 }

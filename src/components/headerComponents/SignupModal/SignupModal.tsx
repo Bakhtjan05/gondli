@@ -42,8 +42,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
   const [errors, setErrors] = useState<string[]>([]);
 
 
-  const [passwordConfirmation, setPasswordConfirmation] =
-    useState('');
+  const [passwordConfirmation, setPasswordConfirmation] = useState('');
   const [passwordError, setPasswordError] = useState('');
 
   const { register, isLoading, token } = useAuth({ middleware: 'guest' });
@@ -285,30 +284,7 @@ const SignupModal: React.FC<SignupModalProps> = ({ show, onClose }) => {
                   <span>{t('or')}</span>
                 </p>
               </div>
-              <div className='socialLogin'>
-                <button className='facebook'>
-                  <Image
-                    priority
-                    src='/images/notifications/facebook.svg'
-                    width={20}
-                    height={20}
-                    alt='facebook'
-                  />
-                  <p className='max-lg:!text-sm'>
-                    {t('continue-with-facebook')}
-                  </p>
-                </button>
-                <button className='google'>
-                  <Image
-                    priority
-                    src='/images/notifications/google.svg'
-                    width={20}
-                    height={20}
-                    alt='google'
-                  />
-                  <p className='max-lg:!text-sm'>{t('continue-with-google')}</p>
-                </button>
-              </div>
+              
               <div className='alreadyAccount'>
                 <p className='max-lg:!text-sm'>
                   {t('already-have-account')}{' '}

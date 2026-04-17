@@ -38,7 +38,7 @@ const slideData: SlideData[] = [
   },
   {
     title: 'Pure Pilates Oasis',
-    imageSrc: '/images/home/booking3.svg',
+    imageSrc: '/images/home/booking3.jpeg',
     rating: 8.4,
     priceRange: '$$$$',
     location: 'Altdetten',

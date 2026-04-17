@@ -22,7 +22,6 @@ export default function HomeSection() {
       <Insights/>
       <TestimonialsSection/>
       <WaitlistSection />
-      
     </main>
   );
 }

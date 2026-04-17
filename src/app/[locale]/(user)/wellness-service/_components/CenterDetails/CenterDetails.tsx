@@ -69,6 +69,8 @@ const CenterDetails: React.FC<CenterDetailsProps> = ({ serviceId }) => {
 
 
   useEffect(() => {
+    if (!serviceId) return;
+
     const fetchData = async () => {
       try {
         const response = await axios.get(`/api/service-providers/${serviceId}`);
@@ -76,15 +78,15 @@ const CenterDetails: React.FC<CenterDetailsProps> = ({ serviceId }) => {
         const services = response.data?.services || [];
 
         const grouped = services.reduce((acc: Record<string, any[]>, service: any) => {
-          if (!acc[service.category]) {
-            acc[service.category] = [];
+          const key = service.category || 'Other';
+
+          if (!acc[key]) {
+            acc[key] = [];
           }
-          acc[service.category].push(service);
+
+          acc[key].push(service);
           return acc;
         }, {});
-
-        localStorage.setItem('servicesData', JSON.stringify(response.data));
-        localStorage.setItem('groupedServices', JSON.stringify(grouped));
 
         dispatch(setServicesData(response.data));
         dispatch(setGroupedServices(grouped));
@@ -94,7 +96,7 @@ const CenterDetails: React.FC<CenterDetailsProps> = ({ serviceId }) => {
     };
 
     fetchData();
-  }, []);
+  }, [serviceId]);
 
   const handleModalOpen = () => {
     setUpadateShowModal(true); // Show the modal when the title is clicked

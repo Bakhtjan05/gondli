@@ -16,8 +16,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setIsAuthenticated, selectUpcomingPageState, setUserName } from '@/slices/upcomingPageSlice';
 const SocialIcons: React.FC = () => {
   const locale = useLocale();
-  const { token, logout } = useAuth();
-  const { userName, isAuthenticated } = useSelector(selectUpcomingPageState);
+  const { user, logout, isAuthenticated } = useAuth();
   const pathname = usePathname(); // Get the current pathname
   const t = useTranslations();
   const dispatch = useDispatch();
@@ -60,28 +59,6 @@ const SocialIcons: React.FC = () => {
   const handleActivePlanIntervalChange = (e: string) => {
     setActivePlanInterval(e);
   };
-
-
-
-  useEffect(() => {
-    const fetchUserData = async () => {
-      if (!isAuthenticated) return; // Если пользователь не авторизован, не делаем запрос
-
-      try {
-        const response = await axios.get('/api/profile/user/info', {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        dispatch(setUserName(response.data.data.name));
-      } catch (err) {
-        setError(err.response?.data || err.message);
-      }
-    };
-
-    fetchUserData();
-  }, [isAuthenticated, token, dispatch]); // Запрос на данные только при авторизации
 
 
   // Close dropdown if clicking outside
@@ -346,7 +323,7 @@ const SocialIcons: React.FC = () => {
               alt='user'
             />
             {isAuthenticated && (
-              <p>{userName}</p>
+              <p>{user?.name}</p>
             )}
             <Image
               priority

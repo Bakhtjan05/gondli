@@ -1,3 +1,5 @@
+'use client';
+
 import { useEffect, useState } from 'react';
 import axios from '../lib/axios';
 import { useRouter } from 'next/navigation';
@@ -16,44 +18,55 @@ interface LoginProps {
   [key: string]: any;
 }
 
-interface UseAuthProps {
-  middleware?: 'guest' | 'auth';
-}
-
-export const useAuth = ({ middleware }: UseAuthProps = {}) => {
+export const useAuth = () => {
   const router = useRouter();
   const locale = useLocale();
   const dispatch = useDispatch();
-  
-  const { isAuthenticated } = useSelector(selectUpcomingPageState);
-  
 
-  // Loading
-  const [isLoading, setIsLoading] = useState(false);
-  const [token, setToken] = useState<string | null>(null);
+  const { isAuthenticated } = useSelector(selectUpcomingPageState);
+
+  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<any>(null);
+
+  // 🔥 Получение пользователя
+  const getMe = async () => {
+    try {
+      const token = Cookies.get('authToken');
+
+      if (!token) {
+        dispatch(setIsAuthenticated(false));
+        setUser(null);
+        return;
+      }
+
+      const { data } = await axios.get('/api/me', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      setUser(data); // ✅ теперь у тебя есть user
+      dispatch(setIsAuthenticated(true));
+    } catch (error) {
+      Cookies.remove('authToken');
+      setUser(null);
+      dispatch(setIsAuthenticated(false));
+    } finally {
+      setIsLoading(false);
+    }
+  };
 
   useEffect(() => {
-    // ✅ Получаем токен из cookies
-    const savedToken = Cookies.get('authToken');
-    if (savedToken) {
-      setToken(savedToken);
-      dispatch(setIsAuthenticated(true)); // Авторизован
-    } else {
-      dispatch(setIsAuthenticated(false)); // Не авторизован
-    }
-    setIsLoading(false); // Завершаем загрузку
-  }, [dispatch]);
-
-
+    getMe();
+  }, []);
 
   // CSRF
-  const csrf = async (): Promise<void> => {
+  const csrf = async () => {
     await axios.get('/sanctum/csrf-cookie', { withCredentials: true });
-
   };
 
   // Register
-  const register = async ({ setErrors, ...props }: RegisterProps): Promise<{ err: boolean; msg: string }> => {
+  const register = async ({ setErrors, ...props }: RegisterProps) => {
     setErrors([]);
     setIsLoading(true);
 
@@ -62,63 +75,55 @@ export const useAuth = ({ middleware }: UseAuthProps = {}) => {
       await axios.post('/register', props);
       const { data } = await axios.post('/login', props);
 
-      // ✅ Сохраняем токен в cookies
-      Cookies.set('authToken', data.token, { expires: 1, path: '/' }); // 1 день
+      Cookies.set('authToken', data.token, { expires: 1, path: '/' });
 
-      setToken(data.token);
-      dispatch(setIsAuthenticated(true));
+      await getMe();
 
-      return { err: false, msg: '' };
+      return { err: false };
     } catch (error: any) {
       if (error.response?.status !== 422) throw error;
       setErrors(Object.values(error.response.data.errors).flat() as string[]);
       setIsLoading(false);
-      return {
-        err: true,
-        msg: error.response?.data?.message || 'something went wrong',
-      };
+
+      return { err: true };
     }
   };
 
   // Login
-  const login = async ({ setErrors, ...props }: LoginProps): Promise<{ err: boolean; msg: string }> => {
+  const login = async ({ setErrors, ...props }: LoginProps) => {
     setErrors([]);
 
     try {
       await csrf();
       const { data } = await axios.post('/api/login', props);
 
-      // ✅ Сохраняем токен в cookies
       Cookies.set('authToken', data.token, { expires: 1, path: '/' });
-      
 
-      setToken(data.token);
-      dispatch(setIsAuthenticated(true));
+      await getMe();
 
-      return { err: false, msg: '' };
+      return { err: false };
     } catch (error: any) {
       if (error.response?.status !== 422) throw error;
       setErrors(Object.values(error.response.data.errors).flat() as string[]);
-      return { err: true, msg: error.response?.data?.message || 'something went wrong' };
+
+      return { err: true };
     }
   };
 
   // Logout
-  const logout = async (): Promise<void> => {
-    Cookies.remove('authToken'); // Удаляем authToken
-    setToken(null);
+  const logout = () => {
+    Cookies.remove('authToken');
+    setUser(null);
     dispatch(setIsAuthenticated(false));
     router.push(`/${locale}`);
   };
-  
 
   return {
-    csrf,
-    isLoading,
-    register,
-    login,
-    logout,
-    token,
+    user, // 🔥 НОВОЕ
     isAuthenticated,
+    isLoading,
+    login,
+    register,
+    logout,
   };
 };
